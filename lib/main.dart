@@ -1,5 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:fudiko/screens/home.dart';
+import 'package:fudiko/screens/auth/changepassword.dart';
+import 'package:fudiko/screens/auth/forgotpassword.dart';
+import 'package:fudiko/screens/auth/login.dart';
+import 'package:fudiko/screens/auth/otp.dart';
+import 'package:fudiko/screens/others/infoPage.dart';
+import 'package:fudiko/screens/others/infoPage2.dart';
+import 'package:fudiko/screens/others/infoPage3.dart';
+import 'package:fudiko/screens/others/infoPage4.dart';
+import 'package:fudiko/screens/others/nav/mainnav.dart';
 
 void main() {
   runApp(const MyApp());
@@ -8,15 +16,16 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Fudiko',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        scaffoldBackgroundColor: Colors.white
       ),
-      home: const Home(),
+      home: const MainNavPage(),
     );
   }
 }
