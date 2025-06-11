@@ -48,8 +48,7 @@ class _AppFilterDropDownState extends State<AppFilterDropDown> {
         GestureDetector(
           onTap: toggleDropdown,
           child: Container(
-            height: 45,
-            padding: const EdgeInsets.symmetric(horizontal: 12),
+            height: widget.height ?? 45,
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(12),
@@ -61,24 +60,35 @@ class _AppFilterDropDownState extends State<AppFilterDropDown> {
                 ),
               ],
             ),
-            child: Row(
+            child: Stack(
+              alignment: Alignment.center,
               children: [
-                Icon(widget.icon, size: 20, color: Colors.black87),
-                const SizedBox(width: 8),
-                Expanded(
+                if (widget.icon != null)
+                  Positioned(
+                    left: 12,
+                    child: Icon(widget.icon, size: 20, color: Colors.black87),
+                  ),
+
+                Center(
                   child: Text(
                     selectedValue ?? widget.hint,
                     style: TextStyle(
                       fontSize: 14,
-                      color: Colors.black87,
+                      color: widget.textColor ?? Colors.black87,
                       fontWeight: FontWeight.w500,
                     ),
                   ),
                 ),
-                Icon(
-                  isOpen ? Icons.keyboard_arrow_up : Icons.keyboard_arrow_down,
-                  size: 24,
-                  color: Colors.black87,
+
+                Positioned(
+                  right: 12,
+                  child: Icon(
+                    isOpen
+                        ? Icons.keyboard_arrow_up
+                        : Icons.keyboard_arrow_down,
+                    size: 24,
+                    color: Colors.black87,
+                  ),
                 ),
               ],
             ),

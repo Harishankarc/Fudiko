@@ -5,6 +5,8 @@ class DescriptionTextArea extends StatefulWidget {
   final int maxLength;
   final IconData icon;
   final void Function(String)? onChanged;
+  final Color? iconColor;
+  final int? maxLines;
 
   const DescriptionTextArea({
     super.key,
@@ -12,6 +14,8 @@ class DescriptionTextArea extends StatefulWidget {
     this.maxLength = 450,
     this.icon = Icons.list,
     this.onChanged,
+    this.iconColor,
+    this.maxLines
   });
 
   @override
@@ -42,7 +46,7 @@ class _DescriptionTextAreaState extends State<DescriptionTextArea> {
         children: [
           Row(
             children: [
-              Icon(widget.icon, color: const Color(0xFFC95F05)),
+              Icon(widget.icon, color: widget.iconColor ?? const Color(0xFFC95F05)),
               const Spacer(),
               Text(
                 '$_charCount/${widget.maxLength}',
@@ -53,7 +57,7 @@ class _DescriptionTextAreaState extends State<DescriptionTextArea> {
           const SizedBox(height: 8),
           TextField(
             controller: _controller,
-            maxLines: 5,
+            maxLines: widget.maxLines ?? 5,
             maxLength: widget.maxLength,
             onChanged: (val) {
               setState(() => _charCount = val.length);

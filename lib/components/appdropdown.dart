@@ -75,7 +75,7 @@ class _AppDropDownState extends State<AppDropDown> {
                         fontSize: 16,
                         color: selectedValue == null
                             ?  Colors.grey
-                            : Colors.grey,
+                            : Colors.black,
                         fontWeight: selectedValue == null
                             ? FontWeight.w400
                             : FontWeight.w400,
@@ -116,32 +116,43 @@ class _AppDropDownState extends State<AppDropDown> {
 
                   return InkWell(
                     onTap: () => selectItem(item),
-                    child: Container(
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 16,
-                        vertical: 12,
-                      ),
-                      decoration: BoxDecoration(
-                        color: isSelected ? appTextColor : Colors.transparent,
-                        borderRadius: BorderRadius.vertical(
-                          top: index == 0
-                              ? const Radius.circular(12)
-                              : Radius.zero,
-                          bottom: index == widget.items.length - 1
-                              ? const Radius.circular(12)
-                              : Radius.zero,
+                    child: Column(
+                      children: [
+                        Container(
+                          width: double.infinity,
+                          padding: const EdgeInsets.symmetric(
+                            // horizontal: 16,
+                            vertical: 5,
+                          ),
+                          decoration: BoxDecoration(
+                            color: isSelected ? appTextColor : Colors.transparent,
+                            borderRadius: BorderRadius.vertical(
+                              top: index == 0
+                                  ? const Radius.circular(12)
+                                  : Radius.zero,
+                              bottom: index == widget.items.length - 1
+                                  ? const Radius.circular(12)
+                                  : Radius.zero,
+                            ),
+                          ),
+                          child: Column(
+                            children: [
+                              Text(
+                                item,
+                                style: TextStyle(
+                                  color: isSelected ? Colors.white : Colors.black87,
+                                  fontWeight: isSelected
+                                      ? FontWeight.bold
+                                      : FontWeight.normal,
+                                  fontSize: 14,
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
-                      ),
-                      child: Text(
-                        item,
-                        style: TextStyle(
-                          color: isSelected ? Colors.white : Colors.black87,
-                          fontWeight: isSelected
-                              ? FontWeight.bold
-                              : FontWeight.normal,
-                          fontSize: 14,
-                        ),
-                      ),
+                          Divider(color: Colors.grey),
+
+                      ],
                     ),
                   );
                 },

@@ -32,160 +32,162 @@ class _InfoPage3State extends State<InfoPage3> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Column(
-        children: [
-          const SizedBox(height: 20),
-          Divider(color: appTextColor, thickness: 1, height: 20),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                AppText(text: "Banquet", size: 15, fontWeight: FontWeight.w500),
-                AppSwitch(initialValue: true, onToggle: (val) {}),
-              ],
+    return SafeArea(
+      child: Scaffold(
+        body: Column(
+          children: [
+            const SizedBox(height: 20),
+            Divider(color: appTextColor, thickness: 1, height: 20),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  AppText(text: "Banquet", size: 15, fontWeight: FontWeight.w500),
+                  AppSwitch(initialValue: true, onToggle: (val) {}),
+                ],
+              ),
             ),
-          ),
-          Divider(color: appTextColor, thickness: 1, height: 20),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                AppText(
-                  text: "Takeaway service",
-                  size: 15,
-                  fontWeight: FontWeight.w500,
-                ),
-                AppSwitch(initialValue: true, onToggle: (val) {}),
-              ],
+            Divider(color: appTextColor, thickness: 1, height: 20),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  AppText(
+                    text: "Takeaway service",
+                    size: 15,
+                    fontWeight: FontWeight.w500,
+                  ),
+                  AppSwitch(initialValue: true, onToggle: (val) {}),
+                ],
+              ),
             ),
-          ),
-          Divider(color: appTextColor, thickness: 1, height: 20),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                AppText(
-                  text: "Delivery service",
-                  size: 15,
-                  fontWeight: FontWeight.w500,
-                ),
-                AppSwitch(initialValue: true, onToggle: (val) {}),
-              ],
+            Divider(color: appTextColor, thickness: 1, height: 20),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  AppText(
+                    text: "Delivery service",
+                    size: 15,
+                    fontWeight: FontWeight.w500,
+                  ),
+                  AppSwitch(initialValue: true, onToggle: (val) {}),
+                ],
+              ),
             ),
-          ),
-          const SizedBox(height: 16),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 60),
-            child: _buildDistanceGrid(),
-          ),
-          Divider(color: appTextColor, thickness: 1, height: 20),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                AppText(
-                  text: "Type of restaurant ",
-                  size: 15,
-                  fontWeight: FontWeight.w500,
-                ),
-              ],
+            const SizedBox(height: 16),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 60),
+              child: _buildDistanceGrid(),
             ),
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 60),
-            child: Column(
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    AppText(text: "Pure Vegetarian", size: 15, fontWeight: FontWeight.bold,color: Colors.black,),
-                    Checkbox(
-                      value: isCheck,
-                      onChanged: (bool? value) {},
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(4),
+            Divider(color: appTextColor, thickness: 1, height: 20),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  AppText(
+                    text: "Type of restaurant ",
+                    size: 15,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ],
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 60),
+              child: Column(
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      AppText(text: "Pure Vegetarian", size: 15, fontWeight: FontWeight.bold,color: Colors.black,),
+                      Checkbox(
+                        value: isCheck,
+                        onChanged: (bool? value) {},
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(4),
+                        ),
+                        side: BorderSide.none,
+                        checkColor: Colors.white,
+                        activeColor: appToggleColor,
+                        materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
                       ),
-                      side: BorderSide.none,
-                      checkColor: Colors.white,
-                      activeColor: appToggleColor,
-                      materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                    ),
-                  ],
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    AppText(
-                      text: "Non Vegetarian",
-                      size: 15,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black,
-                    ),
-
-                    Checkbox(
-                      value: isCheck,
-                      onChanged: (bool? value) {
-
-                      },
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(4),
+                    ],
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      AppText(
+                        text: "Non Vegetarian",
+                        size: 15,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black,
                       ),
-                      side: BorderSide.none,
-                      checkColor: Colors.white,
-                      activeColor: appToggleColor,
-                      materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                    ),
-                  ],
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    AppText(
-                      text: "Both Veg & Non-Veg",
-                      size: 15,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black,
-                    ),
-
-                    Checkbox(
-                      value: isCheck,
-                      onChanged: (bool? value) {
-
-                      },
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(4),
+      
+                      Checkbox(
+                        value: isCheck,
+                        onChanged: (bool? value) {
+      
+                        },
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(4),
+                        ),
+                        side: BorderSide.none,
+                        checkColor: Colors.white,
+                        activeColor: appToggleColor,
+                        materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
                       ),
-                      side: BorderSide.none,
-                      checkColor: Colors.white,
-                      activeColor: appToggleColor,
-                      materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                    ),
-                  ],
-                ),
+                    ],
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      AppText(
+                        text: "Both Veg & Non-Veg",
+                        size: 15,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black,
+                      ),
+      
+                      Checkbox(
+                        value: isCheck,
+                        onChanged: (bool? value) {
+      
+                        },
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(4),
+                        ),
+                        side: BorderSide.none,
+                        checkColor: Colors.white,
+                        activeColor: appToggleColor,
+                        materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+            Divider(color: appTextColor, thickness: 1, height: 20),
+            SizedBox(height: 60),
+            Column(
+              children: [
+                AppText(text: "By proceeding, you confirm that you have read, understood, and ", size: 12, fontWeight: FontWeight.w400, color: appLinkColor,isCentered: true,),
+                AppText(text: "agreed to our Terms and Conditions, Privacy Policy, and Vendor Agreement.", size: 12, fontWeight: FontWeight.w400, color: appLinkColor,isCentered: true,),
+                SizedBox(height: 5,),
+                AppText(text: "View Agreement", size: 12, fontWeight: FontWeight.bold, color: appLinkColor,isCentered: true,),
               ],
             ),
-          ),
-          Divider(color: appTextColor, thickness: 1, height: 20),
-          SizedBox(height: 60),
-          Column(
-            children: [
-              AppText(text: "By proceeding, you confirm that you have read, understood, and ", size: 12, fontWeight: FontWeight.w400, color: appLinkColor,isCentered: true,),
-              AppText(text: "agreed to our Terms and Conditions, Privacy Policy, and Vendor Agreement.", size: 12, fontWeight: FontWeight.w400, color: appLinkColor,isCentered: true,),
-              SizedBox(height: 5,),
-              AppText(text: "View Agreement", size: 12, fontWeight: FontWeight.bold, color: appLinkColor,isCentered: true,),
-            ],
-          ),
-          SizedBox(height: 20),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 30),
-            child: AppButton(text: 'Proceed', onPressed: () {}),
-          ),
-        ],
+            SizedBox(height: 20),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 30),
+              child: AppButton(text: 'Proceed', onPressed: () {}),
+            ),
+          ],
+        ),
       ),
     );
   }

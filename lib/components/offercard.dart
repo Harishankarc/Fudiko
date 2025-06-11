@@ -2,13 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:fudiko/components/appswitch.dart';
 import 'package:fudiko/components/apptext.dart';
 
-class OfferCard extends StatelessWidget {
+class OfferCard extends StatefulWidget {
   final String url;
 
   const OfferCard({
     super.key,
     required this.url
   });
+
+  @override
+  State<OfferCard> createState() => _OfferCardState();
+}
+
+class _OfferCardState extends State<OfferCard> {
+  bool isDeletePressed = false;
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +47,7 @@ class OfferCard extends StatelessWidget {
               ClipRRect(
                 borderRadius: BorderRadius.circular(20),
                 child: Image.asset(
-                  url,
+                  widget.url,
                   height: 150,
                   width: double.infinity,
                   fit: BoxFit.cover,

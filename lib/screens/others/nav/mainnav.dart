@@ -31,11 +31,13 @@ class _MainNavPageState extends State<MainNavPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: IndexedStack(index: currentIndex, children: screens),
-      bottomNavigationBar: Bottomnav(
-        selectedIndex: currentIndex,
-        onTabSelected: onTabChanged,
+    return SafeArea(
+      child: Scaffold(
+        body: IndexedStack(index: currentIndex, children: screens),
+        bottomNavigationBar: Bottomnav(
+          selectedIndex: currentIndex,
+          onTabSelected: onTabChanged,
+        ),
       ),
     );
   }
