@@ -7,6 +7,7 @@ class AppButton extends StatelessWidget {
   final Color? bgColor2;
   final double? size;
   final IconData? icon;
+  final double? borderRadius;
 
   const AppButton({
     super.key,
@@ -16,6 +17,7 @@ class AppButton extends StatelessWidget {
     this.bgColor2,
     this.size,
     this.icon,
+    this.borderRadius,
   });
 
   @override
@@ -24,7 +26,7 @@ class AppButton extends StatelessWidget {
       width: double.infinity,
       height: 60,
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(  borderRadius ?? 20),
         gradient: bgColor1 == null && bgColor2 == null
             ? const LinearGradient(
                 colors: [Color(0xFFC95F05), Color(0xFFF97A0D)],

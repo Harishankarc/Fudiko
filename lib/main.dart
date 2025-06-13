@@ -46,7 +46,7 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: Colors.white,
         fontFamily: 'Inter',
       ),
-      home: const ContactPage(),
+      home: const MainNavPage(),
     );
   }
 }

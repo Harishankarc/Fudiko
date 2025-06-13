@@ -71,94 +71,196 @@ class _OffersState extends State<Offers> {
               ),
             ),
       body: !isOpen
-          ? Padding(
-              padding: const EdgeInsets.only(left: 20, right: 20, top: 60),
-              child: SingleChildScrollView(
-                child: Column(
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      crossAxisAlignment: CrossAxisAlignment.center,
+          ? Stack(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(left: 30, right: 30, top: 60),
+                  child: SingleChildScrollView(
+                    child: Column(
                       children: [
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
-                            AppText(
-                              text: "Bollywood",
-                              size: 35,
-                              fontWeight: FontWeight.w600,
-                              color: appTextColor3,
-                            ),
-                            AppText(
-                              text: "Restaurant",
-                              size: 25,
-                              fontWeight: FontWeight.w600,
-                              color: appTextColor3,
-                            ),
-                            Row(
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Icon(
-                                  Icons.location_on,
-                                  size: 15,
+                                AppText(
+                                  text: "Bollywood",
+                                  size: 35,
+                                  fontWeight: FontWeight.w600,
                                   color: appTextColor3,
                                 ),
-                                SizedBox(width: 5),
                                 AppText(
-                                  text: "Ulitsa Serpukhovskiy Val-14",
-                                  size: 15,
-                                  fontWeight: FontWeight.w400,
+                                  text: "Restaurant",
+                                  size: 25,
+                                  fontWeight: FontWeight.w600,
                                   color: appTextColor3,
+                                ),
+                                Row(
+                                  children: [
+                                    Icon(
+                                      Icons.location_on,
+                                      size: 15,
+                                      color: appTextColor3,
+                                    ),
+                                    SizedBox(width: 5),
+                                    AppText(
+                                      text: "Ulitsa Serpukhovskiy Val-14",
+                                      size: 15,
+                                      fontWeight: FontWeight.w400,
+                                      color: appTextColor3,
+                                    ),
+                                  ],
                                 ),
                               ],
                             ),
+                            Icon(Icons.menu, size: 30, color: appTextColor3),
                           ],
                         ),
-                        Icon(Icons.menu, size: 30, color: appTextColor3),
+                        SizedBox(height: 40),
+                        SizedBox(
+                          width: 250,
+                          child: AppFilterDropDown(
+                            items: [
+                              'Active',
+                              'Inactive',
+                              'Both Active & Inactive',
+                            ],
+                            hint: 'Both Active and Inactive',
+                            icon: Icons.tune,
+                          ),
+                        ),
+                        SizedBox(height: 20),
+                        if (hasItem)
+                          Column(
+                            children: [
+                              AppText(
+                                text: "Total 6",
+                                size: 15,
+                                fontWeight: FontWeight.w500,
+                                color: appTextColor2,
+                              ),
+                              SizedBox(height: 10),
+                              ListView.builder(
+                                shrinkWrap: true,
+                                physics: NeverScrollableScrollPhysics(),
+                                itemCount: 6,
+                                itemBuilder: (context, index) => OfferCard(
+                                  url: 'assets/images/discountbanner2.png',
+                                  deleteOnTap: (){
+                                    setState(() {
+                                      isDeletePressed = !isDeletePressed;
+                                    });
+                                  },
+                                  editOnTap: (){
+                                    
+                                  },
+                                ),
+                              ),
+                              AppText(
+                                text: "Total 6",
+                                size: 15,
+                                fontWeight: FontWeight.w500,
+                                color: appTextColor2,
+                              ),
+                            ],
+                          )
+                        else
+                          Expanded(
+                            child: Center(child: Text("No promotions  added")),
+                          ),
                       ],
                     ),
-                    SizedBox(height: 40),
-                    SizedBox(
-                      width: 250,
-                      child: AppFilterDropDown(
-                        items: ['Active', 'Inactive', 'Both Active & Inactive'],
-                        hint: 'Both Active and Inactive',
-                        icon: Icons.tune,
+                  ),
+                ),
+                if (isDeletePressed)
+                  Stack(
+                    children: [
+                      Container(
+                        height: MediaQuery.of(context).size.height,
+                        width: MediaQuery.of(context).size.width,
+                        decoration: BoxDecoration(
+                          color: Colors.black.withOpacity(0.5),
+                        ),
+                        child: Text("HIi"),
                       ),
-                    ),
-                    SizedBox(height: 20),
-                    if (hasItem)
-                      Column(
-                        children: [
-                          AppText(
-                            text: "Total 6",
-                            size: 15,
-                            fontWeight: FontWeight.w500,
-                            color: appTextColor2,
-                          ),
-                          SizedBox(height: 10),
-                          ListView.builder(
-                            shrinkWrap: true,
-                            physics: NeverScrollableScrollPhysics(),
-                            itemCount: 6,
-                            itemBuilder: (context, index) => OfferCard(
-                              url: 'assets/images/discountbanner2.png',
+                      Center(
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 30),
+                          child: Container(
+                            height: 150,
+                            width: double.infinity,
+                            padding: const EdgeInsets.only(
+                              left: 40,
+                              right: 40,
+                              top: 30,
+                            ),
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(15),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.black.withOpacity(0.1),
+                                  blurRadius: 10,
+                                  offset: const Offset(0, 4),
+                                ),
+                              ],
+                            ),
+                            child: Column(
+                              children: [
+                                AppText(
+                                  text:
+                                      "Are you sure you want to delete this offer?",
+                                  size: 15,
+                                  fontWeight: FontWeight.w500,
+                                  color: Colors.black,
+                                  isCentered: true,
+                                ),
+                                SizedBox(height: 20),
+                                Row(
+                                  children: [
+                                    Expanded(
+                                      child: SizedBox(
+                                        height: 35,
+                                        child: AppButton(
+                                          text: "Yes",
+                                          onPressed: () {
+                                            setState(() {
+                                            isDeletePressed = !isDeletePressed;
+                                            });
+                                          },
+                                          size: 15,
+                                          borderRadius: 5,
+                                          bgColor1: Colors.green,
+                                          bgColor2: Colors.green,
+                                        ),
+                                      ),
+                                    ),
+                                    const SizedBox(width: 20),
+                                    Expanded(
+                                      child: SizedBox(
+                                        height: 35,
+                                        child: AppButton(
+                                          text: "No",
+                                          onPressed: () {},
+                                          size: 15,
+                                          borderRadius: 5,
+                                          bgColor1: Colors.red,
+                                          bgColor2: Colors.red,
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ],
                             ),
                           ),
-                          AppText(
-                            text: "Total 6",
-                            size: 15,
-                            fontWeight: FontWeight.w500,
-                            color: appTextColor2,
-                          ),
-                        ],
-                      )
-                    else
-                      Expanded(
-                        child: Center(child: Text("No promotions  added")),
+                        ),
                       ),
-                  ],
-                ),
-              ),
+                    ],
+                  ),
+              ],
             )
           : _discountCreatePage(),
     );

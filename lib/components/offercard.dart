@@ -4,10 +4,14 @@ import 'package:fudiko/components/apptext.dart';
 
 class OfferCard extends StatefulWidget {
   final String url;
+  final VoidCallback deleteOnTap;
+  final VoidCallback editOnTap;
 
   const OfferCard({
     super.key,
-    required this.url
+    required this.url,
+    required this.deleteOnTap,
+    required this.editOnTap
   });
 
   @override
@@ -131,12 +135,12 @@ class _OfferCardState extends State<OfferCard> {
             children: [
               SizedBox(
                 width: 100,
-                child: _ActionButton(label: 'Delete', color: Colors.red),
+                child: _ActionButton(label: 'Delete', color: Colors.red,onPressed: widget.deleteOnTap,),
               ),
               SizedBox(width: 10),
               SizedBox(
                 width: 100,
-                child: _ActionButton(label: 'Edit', color: Colors.green),
+                child: _ActionButton(label: 'Edit', color: Colors.green,onPressed: widget.editOnTap,),
               ),
             ],
           ),
@@ -181,13 +185,15 @@ class _IconContainer extends StatelessWidget {
 class _ActionButton extends StatelessWidget {
   final String label;
   final Color color;
+  final VoidCallback onPressed;
 
-  const _ActionButton({required this.label, required this.color});
+  const _ActionButton({required this.label, required this.color,required this.onPressed,
+  });
 
   @override
   Widget build(BuildContext context) {
     return TextButton(
-      onPressed: () {},
+      onPressed: onPressed,
       style: TextButton.styleFrom(
         backgroundColor: color,
         padding: const EdgeInsets.symmetric(vertical: 10),

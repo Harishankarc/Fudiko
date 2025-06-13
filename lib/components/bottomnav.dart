@@ -14,7 +14,7 @@ class Bottomnav extends StatelessWidget {
   Widget build(BuildContext context) {
     final items = [
       {'label': 'Reservation', 'icon': Icons.event_available, 'badge': 2},
-      {'label': 'Banquet', 'icon': Icons.wine_bar, 'badge': 0},
+      {'label': 'Banquet', 'icon': Icons.wine_bar, 'badge': 1},
       {'label': 'Offers', 'icon': Icons.percent, 'badge': 0},
       {'label': 'Take Away', 'icon': Icons.delivery_dining, 'badge': 0},
       {'label': 'Profile', 'icon': Icons.person, 'badge': 0},
