@@ -2,19 +2,21 @@ import 'package:flutter/material.dart';
 import 'package:fudiko/utils/constants.dart';
 
 class AppDropDown extends StatefulWidget {
-  final List<String> items;
+  final List<String>? items;
   final String hint;
   final IconData? icon;
   final IconData? suffixIcon;
   final Color? textColor;
+  final VoidCallback? toggleDropdown;
 
   const AppDropDown({
     super.key,
-    required this.items,
+    this.items,
     required this.hint,
     this.icon,
     this.suffixIcon,
-    this.textColor
+    this.textColor,
+    this.toggleDropdown
   });
 
   @override
@@ -25,11 +27,7 @@ class _AppDropDownState extends State<AppDropDown> {
   String? selectedValue;
   bool isOpen = false;
 
-  void toggleDropdown() {
-    setState(() {
-      isOpen = !isOpen;
-    });
-  }
+
 
   void selectItem(String value) {
     setState(() {
@@ -41,14 +39,12 @@ class _AppDropDownState extends State<AppDropDown> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      // To allow dropdown to expand beyond height, use IntrinsicWidth + Column outside this if needed
       width: double.infinity,
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          // Header (shows selected or hint + toggle icon)
           GestureDetector(
-            onTap: toggleDropdown,
+            onTap: widget.toggleDropdown,
             child: Container(
               height: 60,
               padding: EdgeInsets.symmetric(horizontal: 40),
@@ -91,73 +87,8 @@ class _AppDropDownState extends State<AppDropDown> {
               ),
             ),
           ),
-          // Dropdown items list
-          // Inside _AppDropDownState -> build method, replace the if (isOpen) section with this:
-          if (isOpen)
-            Container(
-              margin: const EdgeInsets.only(top: 6, left: 0, right: 0),
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(12),
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.black.withOpacity(0.08),
-                    blurRadius: 8,
-                    offset: Offset(0, 2),
-                  ),
-                ],
-              ),
-              child: ListView.builder(
-                shrinkWrap: true,
-                itemCount: widget.items.length,
-                itemBuilder: (context, index) {
-                  final item = widget.items[index];
-                  final isSelected = item == selectedValue;
 
-                  return InkWell(
-                    onTap: () => selectItem(item),
-                    child: Column(
-                      children: [
-                        Container(
-                          width: double.infinity,
-                          padding: const EdgeInsets.symmetric(
-                            // horizontal: 16,
-                            vertical: 5,
-                          ),
-                          decoration: BoxDecoration(
-                            color: isSelected ? appTextColor : Colors.transparent,
-                            borderRadius: BorderRadius.vertical(
-                              top: index == 0
-                                  ? const Radius.circular(12)
-                                  : Radius.zero,
-                              bottom: index == widget.items.length - 1
-                                  ? const Radius.circular(12)
-                                  : Radius.zero,
-                            ),
-                          ),
-                          child: Column(
-                            children: [
-                              Text(
-                                item,
-                                style: TextStyle(
-                                  color: isSelected ? Colors.white : Colors.black87,
-                                  fontWeight: isSelected
-                                      ? FontWeight.bold
-                                      : FontWeight.normal,
-                                  fontSize: 14,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                          Divider(color: Colors.grey),
 
-                      ],
-                    ),
-                  );
-                },
-              ),
-            ),
 
         ],
       ),

@@ -1,9 +1,30 @@
+
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:fudiko/components/apptext.dart';
+import 'package:fudiko/screens/others/nav/mainnav.dart';
 import 'package:fudiko/utils/constants.dart';
 
-class InfoPage4 extends StatelessWidget {
+class InfoPage4 extends StatefulWidget {
   const InfoPage4({super.key});
+
+  @override
+  State<InfoPage4> createState() => _InfoPage4State();
+}
+
+class _InfoPage4State extends State<InfoPage4> {
+
+  @override
+  void initState() {
+    super.initState();
+    Timer(Duration(seconds: 2), () {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => const MainNavPage()),
+      );
+    });
+  }
 
   @override
   Widget build(BuildContext context) {

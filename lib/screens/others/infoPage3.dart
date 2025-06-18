@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:fudiko/components/appbutton.dart';
 import 'package:fudiko/components/appswitch.dart';
 import 'package:fudiko/components/apptext.dart';
+import 'package:fudiko/screens/others/infoPage4.dart';
 import 'package:fudiko/utils/constants.dart';
 
 class InfoPage3 extends StatefulWidget {
@@ -127,11 +128,11 @@ class _InfoPage3State extends State<InfoPage3> {
                         fontWeight: FontWeight.bold,
                         color: Colors.black,
                       ),
-      
+
                       Checkbox(
                         value: isCheck,
                         onChanged: (bool? value) {
-      
+
                         },
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(4),
@@ -152,11 +153,11 @@ class _InfoPage3State extends State<InfoPage3> {
                         fontWeight: FontWeight.bold,
                         color: Colors.black,
                       ),
-      
+
                       Checkbox(
                         value: isCheck,
                         onChanged: (bool? value) {
-      
+
                         },
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(4),
@@ -184,7 +185,12 @@ class _InfoPage3State extends State<InfoPage3> {
             SizedBox(height: 20),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 30),
-              child: AppButton(text: 'Proceed', onPressed: () {}),
+              child: AppButton(text: 'Proceed', onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => InfoPage4()),
+                  );
+              }),
             ),
           ],
         ),

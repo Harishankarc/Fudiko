@@ -11,14 +11,19 @@ class ContactPage extends StatelessWidget {
       body: SafeArea(
         child: Column(
           children: [
-            Padding(
-              padding: const EdgeInsets.only(left: 30, top: 10),
-              child: Align(
-                alignment: Alignment.centerLeft,
-                child: Icon(
-                  Icons.arrow_back_ios_new,
-                  color: appTextColor3,
-                  size: 28,
+            GestureDetector(
+              onTap: (){
+                Navigator.pop(context);
+              },
+              child: Padding(
+                padding: const EdgeInsets.only(left: 30, top: 10),
+                child: Align(
+                  alignment: Alignment.centerLeft,
+                  child: Icon(
+                    Icons.arrow_back_ios_new,
+                    color: appTextColor3,
+                    size: 28,
+                  ),
                 ),
               ),
             ),

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:fudiko/components/appbutton.dart';
 import 'package:fudiko/components/apptext.dart';
 import 'package:fudiko/components/apptextfeild.dart';
-import 'package:fudiko/utils/constants.dart';
+import 'package:fudiko/screens/others/nav/mainnav.dart';
 
 class Scanner2 extends StatelessWidget {
   const Scanner2({super.key});
@@ -90,7 +90,9 @@ class Scanner2 extends StatelessWidget {
                     height: 50,
                     child: AppButton(
                       text: 'OK',
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context)=> MainNavPage()), (route)=> route.isFirst);
+                      },
                       bgColor1: Colors.blue,
                       bgColor2: Colors.blue,
                       size: 16,

@@ -11,7 +11,8 @@ import 'package:fudiko/components/sentBox.dart';
 import 'package:fudiko/utils/constants.dart';
 
 class Banquet extends StatefulWidget {
-  const Banquet({super.key});
+  final VoidCallback? onDrawerTap;
+  const Banquet({super.key,this.onDrawerTap});
 
   @override
   State<Banquet> createState() => _BanquetState();
@@ -37,30 +38,7 @@ class _BanquetState extends State<Banquet> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: appSecondaryBackgroundColor,
-      floatingActionButton: Container(
-        margin: const EdgeInsets.all(16),
-        height: 60,
-        width: 60,
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(20),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black.withOpacity(0.5),
-              blurRadius: 10,
-              offset: Offset(0, 4),
-            ),
-          ],
-        ),
-        child: Center(
-          child: Image.asset(
-            'assets/images/scanner2.png',
-            height: 60,
-            width: 60,
-            fit: BoxFit.contain,
-          ),
-        ),
-      ),
+      
       body: Stack(
         children: [
           Padding(
@@ -110,7 +88,9 @@ class _BanquetState extends State<Banquet> {
                             ),
                           ],
                         ),
-                        Icon(Icons.menu, size: 30, color: appTextColor3),
+                        GestureDetector(
+                          onTap: widget.onDrawerTap,
+                          child: Icon(Icons.menu, size: 30, color: appTextColor3)),
                       ],
                     ),
                   ),

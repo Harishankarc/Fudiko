@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:fudiko/components/appbutton.dart';
 import 'package:fudiko/components/apptext.dart';
 import 'package:fudiko/components/apptextfeild.dart';
+import 'package:fudiko/screens/auth/login.dart';
 import 'package:fudiko/utils/constants.dart';
 
 class ChangePassword extends StatelessWidget {
@@ -29,7 +30,12 @@ class ChangePassword extends StatelessWidget {
             SizedBox(height: 20),
             AppTextFeild(text: "Confirm Password", icon: Icons.lock),
             SizedBox(height: 60),
-            AppButton(text: 'Update', onPressed: () {}),
+            AppButton(text: 'Update', onPressed: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Login()),
+                );
+            }),
             SizedBox(height: 20),
           ],
         ),

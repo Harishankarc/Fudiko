@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fudiko/components/apptext.dart';
+import 'package:fudiko/screens/others/scanner2.dart';
 import 'package:fudiko/utils/constants.dart';
 
 class Scanner extends StatelessWidget {
@@ -30,11 +31,19 @@ class Scanner extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Image.asset(
-                    'assets/images/scanner.png',
-                    height: 300,
-                    width: 300,
-                    fit: BoxFit.contain,
+                  GestureDetector(
+                    onTap: (){
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => Scanner2()),
+                      );
+                    },
+                    child: Image.asset(
+                      'assets/images/scanner.png',
+                      height: 300,
+                      width: 300,
+                      fit: BoxFit.contain,
+                    ),
                   ),
                   SizedBox(height: 50),
                   AppText(

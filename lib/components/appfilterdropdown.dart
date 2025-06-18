@@ -1,22 +1,23 @@
 import 'package:flutter/material.dart';
-import 'package:fudiko/utils/constants.dart';
 
 class AppFilterDropDown extends StatefulWidget {
-  final List<String> items;
+  final List<String>? items;
   final String hint;
   final IconData? icon;
   final IconData? suffixIcon;
   final Color? textColor;
   final double? height;
+  final VoidCallback? toogleDropdown;
 
   const AppFilterDropDown({
     super.key,
-    required this.items,
+    this.items,
     required this.hint,
     this.icon,
     this.suffixIcon,
     this.textColor,
     this.height,
+    this.toogleDropdown
   });
 
   @override
@@ -27,11 +28,6 @@ class _AppFilterDropDownState extends State<AppFilterDropDown> {
   String? selectedValue;
   bool isOpen = false;
 
-  void toggleDropdown() {
-    setState(() {
-      isOpen = !isOpen;
-    });
-  }
 
   void selectItem(String value) {
     setState(() {
@@ -46,7 +42,7 @@ class _AppFilterDropDownState extends State<AppFilterDropDown> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         GestureDetector(
-          onTap: toggleDropdown,
+          onTap: widget.toogleDropdown,
           child: Container(
             height: widget.height ?? 45,
             decoration: BoxDecoration(
@@ -94,50 +90,7 @@ class _AppFilterDropDownState extends State<AppFilterDropDown> {
             ),
           ),
         ),
-        if (isOpen)
-          Container(
-            margin: const EdgeInsets.only(top: 8),
-            padding: const EdgeInsets.symmetric(vertical: 4),
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(10),
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.black.withOpacity(0.08),
-                  blurRadius: 6,
-                  offset: const Offset(0, 2),
-                ),
-              ],
-            ),
-            child: ListView.builder(
-              shrinkWrap: true,
-              itemCount: widget.items.length,
-              itemBuilder: (context, index) {
-                final item = widget.items[index];
-                final isSelected = item == selectedValue;
 
-                return InkWell(
-                  onTap: () => selectItem(item),
-                  child: Container(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 16,
-                      vertical: 12,
-                    ),
-                    color: isSelected ? appTextColor : Colors.transparent,
-                    child: Text(
-                      item,
-                      style: TextStyle(
-                        color: isSelected ? Colors.white : Colors.black87,
-                        fontWeight: isSelected
-                            ? FontWeight.bold
-                            : FontWeight.normal,
-                      ),
-                    ),
-                  ),
-                );
-              },
-            ),
-          ),
       ],
     );
   }

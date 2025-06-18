@@ -38,12 +38,17 @@ class _ServicePageState extends State<ServicePage> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Padding(
-                  padding: const EdgeInsets.only(left: 30.0),
-                  child: Icon(
-                    Icons.arrow_back_ios_outlined,
-                    size: 30,
-                    color: Colors.deepOrange,
+                GestureDetector(
+                  onTap: (){
+                    Navigator.pop(context);
+                  },
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 30.0),
+                    child: Icon(
+                      Icons.arrow_back_ios_outlined,
+                      size: 30,
+                      color: Colors.deepOrange,
+                    ),
                   ),
                 ),
                 const SizedBox(height: 60),

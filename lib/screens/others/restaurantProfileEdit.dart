@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:fudiko/components/appbutton.dart';
 import 'package:fudiko/components/appdropdown.dart';
 import 'package:fudiko/components/apptextfeild.dart';
+import 'package:fudiko/screens/others/restaurantBioPage.dart';
 
 class RestaurantProfileEdit extends StatelessWidget {
   const RestaurantProfileEdit({super.key});
@@ -23,10 +24,15 @@ class RestaurantProfileEdit extends StatelessWidget {
                   ),
                   Padding(
                     padding: const EdgeInsets.all(30),
-                    child: Icon(
-                      Icons.arrow_back_ios_outlined,
-                      size: 30,
-                      color: Colors.white,
+                    child: GestureDetector(
+                      onTap: (){
+                        Navigator.pop(context);
+                      },
+                      child: Icon(
+                        Icons.arrow_back_ios_outlined,
+                        size: 30,
+                        color: Colors.white,
+                      ),
                     ),
                   ),
                 ],
@@ -72,7 +78,14 @@ class RestaurantProfileEdit extends StatelessWidget {
                       SizedBox(height: 40),
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 100),
-                        child: AppButton(text: 'Add', onPressed: () {}),
+                        child: AppButton(text: 'Add', onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => RestaurantBioEditPage(),
+                              ),
+                            );
+                        }),
                       ),
                       SizedBox(height: 60), // Optional bottom spacing
                     ],

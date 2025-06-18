@@ -56,10 +56,15 @@ class _MenuUploadState extends State<MenuUpload> {
                   ),
                   Padding(
                     padding: const EdgeInsets.all(30),
-                    child: Icon(
-                      Icons.arrow_back_ios_outlined,
-                      size: 30,
-                      color: Colors.white,
+                    child: GestureDetector(
+                      onTap: (){
+                        Navigator.pop(context);
+                      },
+                      child: Icon(
+                        Icons.arrow_back_ios_outlined,
+                        size: 30,
+                        color: Colors.white,
+                      ),
                     ),
                   ),
                 ],

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:fudiko/components/appbutton.dart';
 import 'package:fudiko/components/apptext.dart';
-import 'package:fudiko/components/apptextfeild.dart';
+import 'package:fudiko/screens/others/individualMenuUpload.dart';
+import 'package:fudiko/screens/others/menuUpload.dart';
+import 'package:fudiko/screens/others/restaurantProfileEdit.dart';
 import 'package:fudiko/utils/constants.dart';
 
 class RestaurantProfile extends StatefulWidget {
@@ -85,27 +87,27 @@ class _RestaurantProfileState extends State<RestaurantProfile> {
                       Positioned(
                         bottom: -screenWidth / 6,
                         right: 20,
-                        child: Container(
-                          width: 150,
-                          height: 150,
-                          decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            color: Colors.white,
-                            boxShadow: [
-                              BoxShadow(
-                                color: Colors.black.withOpacity(0.1),
-                                blurRadius: 10,
-                                offset: Offset(0, 4),
-                              ),
-                            ],
-                          ),
-                          padding: EdgeInsets.all(4),
-                          child: GestureDetector(
-                            onTap: (){
-                              setState(() {
-                                isProfileOpen = !isProfileOpen;
-                              });
-                            },
+                        child: GestureDetector(
+                          onTap: (){
+                            setState(() {
+                              isProfileOpen = !isProfileOpen;
+                            });
+                          },
+                          child: Container(
+                            width: 150,
+                            height: 150,
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: Colors.white,
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.black.withOpacity(0.1),
+                                  blurRadius: 10,
+                                  offset: Offset(0, 4),
+                                ),
+                              ],
+                            ),
+                            padding: EdgeInsets.all(4),
                             child: ClipOval(
                               child: Image.asset(
                                 'assets/images/restaurantLogo.png',
@@ -188,10 +190,15 @@ class _RestaurantProfileState extends State<RestaurantProfile> {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.end,
                             children: [
-                              Icon(
-                                Icons.edit_square,
-                                size: 20,
-                                color: Colors.black54,
+                              GestureDetector(
+                                onTap: (){
+                                  Navigator.push(context, MaterialPageRoute(builder: (context)=> RestaurantProfileEdit()));
+                                },
+                                child: Icon(
+                                  Icons.edit_square,
+                                  size: 20,
+                                  color: Colors.black54,
+                                ),
                               ),
                             ],
                           ),
@@ -461,6 +468,13 @@ class _RestaurantProfileState extends State<RestaurantProfile> {
                                     onPressed: () {
                                       setState(() {
                                         isButtonOpen = !isButtonOpen;
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) =>
+                                                MenuUpload(),
+                                          ),
+                                        );
                                       });
                                     },
                                   ),
@@ -474,6 +488,13 @@ class _RestaurantProfileState extends State<RestaurantProfile> {
                                     onPressed: () {
                                       setState(() {
                                         isButtonOpen = !isButtonOpen;
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) =>
+                                                IndividualMenuUpload(),
+                                          ),
+                                        );
                                       });
                                     },
                                   ),

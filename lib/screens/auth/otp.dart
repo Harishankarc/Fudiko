@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:fudiko/components/appbutton.dart';
 import 'package:fudiko/components/apptext.dart';
 import 'package:fudiko/components/apptextfeild.dart';
+import 'package:fudiko/screens/others/infoPage.dart';
 import 'package:fudiko/utils/constants.dart';
 
 class Otp extends StatelessWidget {
@@ -36,7 +37,12 @@ class Otp extends StatelessWidget {
               ],
             ),
             SizedBox(height: 40,),
-            AppButton(text: 'Verify', onPressed: () {}),
+            AppButton(text: 'Verify', onPressed: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => InfoPage()),
+                );
+            }),
           ],
         ),
       ),

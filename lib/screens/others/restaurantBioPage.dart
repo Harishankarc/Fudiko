@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:fudiko/components/appbutton.dart';
 import 'package:fudiko/components/apptextfeild.dart';
 import 'package:fudiko/components/descriptionBox.dart';
+import 'package:fudiko/screens/others/restaurantProfile.dart';
 import 'package:fudiko/utils/constants.dart';
 
 class RestaurantBioEditPage extends StatelessWidget {
@@ -23,10 +24,15 @@ class RestaurantBioEditPage extends StatelessWidget {
                 ),
                 Padding(
                   padding: const EdgeInsets.all(30),
-                  child: Icon(
-                    Icons.arrow_back_ios_outlined,
-                    size: 30,
-                    color: Colors.white,
+                  child: GestureDetector(
+                    onTap: (){
+                      Navigator.pop(context);
+                    },
+                    child: Icon(
+                      Icons.arrow_back_ios_outlined,
+                      size: 30,
+                      color: Colors.white,
+                    ),
                   ),
                 ),
               ],
@@ -69,7 +75,14 @@ class RestaurantBioEditPage extends StatelessWidget {
                     SizedBox(height: 50),
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 100),
-                      child: AppButton(text: 'Update', onPressed: () {}),
+                      child: AppButton(text: 'Update', onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => RestaurantProfile(),
+                            ),
+                          );
+                      }),
                     ),
                   ],
                 ),

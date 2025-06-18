@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:fudiko/components/appbutton.dart';
 import 'package:fudiko/components/apptext.dart';
 import 'package:fudiko/components/apptextfeild.dart';
+import 'package:fudiko/screens/auth/changepassword.dart';
 import 'package:fudiko/utils/constants.dart';
 
 class ForgotPassword extends StatelessWidget {
@@ -34,7 +35,12 @@ class ForgotPassword extends StatelessWidget {
             SizedBox(height: 20),
             AppTextFeild(text: "Email", icon: Icons.mail),
             SizedBox(height: 60),
-            AppButton(text: 'Continue', onPressed: () {}),
+            AppButton(text: 'Continue', onPressed: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => ChangePassword()),
+                );
+            }),
             SizedBox(height: 20),
 
 

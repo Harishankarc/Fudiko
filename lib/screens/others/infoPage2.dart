@@ -4,6 +4,7 @@ import 'package:fudiko/components/appdropdown.dart';
 import 'package:fudiko/components/apptext.dart';
 import 'package:fudiko/components/apptextfeild.dart';
 import 'package:fudiko/components/descriptionBox.dart';
+import 'package:fudiko/screens/others/infoPage3.dart';
 import 'package:fudiko/utils/constants.dart';
 
 class InfoPage2 extends StatelessWidget {
@@ -38,7 +39,12 @@ class InfoPage2 extends StatelessWidget {
               AppTextFeild(text: "Contact number", icon: Icons.phone,iconColor: appTextColor,),
 
               SizedBox(height: 150),
-              AppButton(text: 'Continue', onPressed: () {}),
+              AppButton(text: 'Continue', onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => InfoPage3()),
+                  );
+              }),
             ],
           ),
         ),

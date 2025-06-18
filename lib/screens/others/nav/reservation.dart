@@ -10,7 +10,8 @@ import 'package:fudiko/components/rejectedBox.dart';
 import 'package:fudiko/utils/constants.dart';
 
 class Reservation extends StatefulWidget {
-  const Reservation({super.key});
+  final VoidCallback? onDrawerTap;
+  const Reservation({super.key, this.onDrawerTap});
 
   @override
   State<Reservation> createState() => _ReservationState();
@@ -26,30 +27,7 @@ class _ReservationState extends State<Reservation> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: appSecondaryBackgroundColor,
-      floatingActionButton: Container(
-        margin: const EdgeInsets.all(16),
-        height: 60,
-        width: 60,
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(20),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black.withOpacity(0.5),
-              blurRadius: 10,
-              offset: Offset(0, 4),
-            ),
-          ],
-        ),
-        child: Center(
-          child: Image.asset(
-            'assets/images/scanner2.png',
-            height: 60,
-            width: 60,
-            fit: BoxFit.contain,
-          ),
-        ),
-      ),
+
       body: Stack(
         children: [
           Padding(
@@ -97,7 +75,14 @@ class _ReservationState extends State<Reservation> {
                             ),
                           ],
                         ),
-                        Icon(Icons.menu, size: 30, color: appTextColor3),
+                        GestureDetector(
+                          onTap: widget.onDrawerTap,
+                          child: Icon(
+                            Icons.menu,
+                            size: 30,
+                            color: appTextColor3,
+                          ),
+                        ),
                       ],
                     ),
                   ),
@@ -154,11 +139,11 @@ class _ReservationState extends State<Reservation> {
                             ],
                           )
                         : AppTextFeild(
-                          text: "Coupon Number",
-                          icon: Icons.search,
-                          size: 15,
-                          iconColor: appButtonColor,
-                        ),
+                            text: "Coupon Number",
+                            icon: Icons.search,
+                            size: 15,
+                            iconColor: appButtonColor,
+                          ),
                   ),
                   const SizedBox(height: 30),
                   if (selectedStatus == "Processing")
@@ -175,11 +160,11 @@ class _ReservationState extends State<Reservation> {
                   else if (selectedStatus == "Confirmed")
                     buildList(5, const ConfirmedBox())
                   else if (selectedStatus == "Completed")
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 30),
-                      child: Column(
-                        children: [
-                          Row(
+                    Column(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 30),
+                          child: Row(
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
                               SizedBox(
@@ -192,15 +177,15 @@ class _ReservationState extends State<Reservation> {
                               ),
                             ],
                           ),
-                          const SizedBox(height: 20),
-                          buildList(3, const CompletedBox()),
-                        ],
-                      ),
+                        ),
+                        const SizedBox(height: 20),
+                        buildList(3, const CompletedBox()),
+                      ],
                     )
-                  else if(selectedStatus == "Rejected")
+                  else if (selectedStatus == "Rejected")
                     buildList(1, const RejectedBox())
                   else
-                    SizedBox.shrink()
+                    SizedBox.shrink(),
                 ],
               ),
             ),
@@ -394,7 +379,7 @@ class _ReservationState extends State<Reservation> {
                 ? const LinearGradient(
                     colors: [Color(0xFFEC7B2D), Color(0xFFF7A440)],
                   )
-                : const LinearGradient(colors: [Colors.grey, Colors.grey]),
+                :  LinearGradient(colors: [Colors.grey[350]!, Colors.grey[350]!]),
             color: isSelected ? null : Colors.white,
             borderRadius: BorderRadius.circular(20),
             boxShadow: [

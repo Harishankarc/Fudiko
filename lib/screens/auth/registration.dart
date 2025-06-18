@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:fudiko/components/appbutton.dart';
 import 'package:fudiko/components/apptext.dart';
 import 'package:fudiko/components/apptextfeild.dart';
+import 'package:fudiko/screens/auth/login.dart';
+import 'package:fudiko/screens/auth/otp.dart';
+import 'package:fudiko/screens/others/nav/mainnav.dart';
 import 'package:fudiko/utils/constants.dart';
 
 class Register extends StatelessWidget {
@@ -40,7 +43,12 @@ class Register extends StatelessWidget {
                 const SizedBox(height: 20),
                 const AppTextFeild(text: "Confirm Password", icon: Icons.lock),
                 const SizedBox(height: 40),
-                AppButton(text: 'Create Account', onPressed: () {}),
+                AppButton(text: 'Create Account', onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Otp()),
+                    );
+                }),
                 const SizedBox(height: 30),
                 Align(
                   alignment: Alignment.bottomCenter,
@@ -53,11 +61,16 @@ class Register extends StatelessWidget {
                         fontWeight: FontWeight.normal,
                         color: appTextColor2,
                       ),
-                      AppText(
-                        text: "Sign In",
-                        size: 15,
-                        fontWeight: FontWeight.normal,
-                        color: Colors.blue, // Optional styling
+                      GestureDetector(
+                        onTap: (){
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=>Login()));
+                        },
+                        child: AppText(
+                          text: "Sign In",
+                          size: 15,
+                          fontWeight: FontWeight.normal,
+                          color: Colors.blue, // Optional styling
+                        ),
                       ),
                     ],
                   ),

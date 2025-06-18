@@ -13,17 +13,22 @@ class NotificationPage extends StatelessWidget {
     return Scaffold(
       body: Column(
         children: [
-          Padding(
-            padding: const EdgeInsets.only(top: 40,left: 30),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Icon(
-                  Icons.arrow_back_ios_outlined,
-                  size: 30,
-                  color: appTextColor3,
-                ),
-              ],
+          GestureDetector(
+            onTap: (){
+              Navigator.pop(context);
+            },
+            child: Padding(
+              padding: const EdgeInsets.only(top: 40,left: 30),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Icon(
+                    Icons.arrow_back_ios_outlined,
+                    size: 30,
+                    color: appTextColor3,
+                  ),
+                ],
+              ),
             ),
           ),
           SizedBox(height: 60),
