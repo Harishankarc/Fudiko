@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:fudiko/components/appbutton.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fudiko/components/appfilterdropdown.dart';
-import 'package:fudiko/components/apptext.dart';
-import 'package:fudiko/components/apptextfeild.dart';
 import 'package:fudiko/components/menucard.dart';
-import 'package:fudiko/screens/others/establishmentSelect.dart';
 import 'package:fudiko/screens/others/individualMenuUpload2.dart';
 import 'package:fudiko/utils/constants.dart';
 
@@ -25,15 +22,15 @@ class _IndividualMenuUploadState extends State<IndividualMenuUpload> {
     return SafeArea(
       child: Scaffold(
         floatingActionButton: Container(
-          margin: const EdgeInsets.only(bottom: 40, right: 20),
+          margin: EdgeInsets.only(bottom: 40.h, right: 20.w),
           decoration: BoxDecoration(
             shape: BoxShape.circle,
             color: Colors.white,
             boxShadow: [
               BoxShadow(
                 color: Colors.black.withOpacity(0.2),
-                blurRadius: 10,
-                offset: Offset(0, 4),
+                blurRadius: 10.r,
+                offset: Offset(0, 4.r),
               ),
             ],
           ),
@@ -49,7 +46,7 @@ class _IndividualMenuUploadState extends State<IndividualMenuUpload> {
                 );
               });
             },
-            icon: Icon(Icons.add, color: appButtonColor, size: 40),
+            icon: Icon(Icons.add, color: appButtonColor, size: 40.w),
           ),
         ),
         body: Column(
@@ -58,23 +55,23 @@ class _IndividualMenuUploadState extends State<IndividualMenuUpload> {
               children: [
                 Image.asset(
                   'assets/images/banner1.png',
-                  height: 150,
+                  height: 150.h,
                   width: double.infinity,
                   fit: BoxFit.cover,
                 ),
                 Padding(
-                  padding: const EdgeInsets.all(30),
+                  padding: EdgeInsets.all(30.w),
                   child: GestureDetector(
-                    onTap: (){
+                    onTap: () {
                       Navigator.pop(context);
                     },
                     child: GestureDetector(
-                      onTap: (){
+                      onTap: () {
                         Navigator.pop(context);
                       },
                       child: Icon(
                         Icons.arrow_back_ios_outlined,
-                        size: 30,
+                        size: 30.w,
                         color: Colors.white,
                       ),
                     ),
@@ -82,33 +79,31 @@ class _IndividualMenuUploadState extends State<IndividualMenuUpload> {
                 ),
               ],
             ),
-            SizedBox(height: 35),
+            SizedBox(height: 35.h),
             SizedBox(
-              width: 250,
+              width: 220.w,
               child: AppFilterDropDown(
                 items: ['Active', 'Inactive', 'Both Active & Inactive'],
                 hint: 'Both Active and Inactive',
                 icon: Icons.tune,
               ),
             ),
-      
-            if(!hasData)
+
+            if (!hasData)
               Expanded(child: Center(child: Text("No Items added")))
             else
               Expanded(
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 30),
-                  child: ListView.builder(
-                    padding: const EdgeInsets.only(top: 30),
-                    itemCount: 10,
-                    itemBuilder: (context, index) {
-                      return MenuCard(url: 'assets/images/dish.png');
-                    },
-                  ),
+                child: ListView.builder(
+                  padding: EdgeInsets.only(top: 30.h, bottom: 30.h),
+                  itemCount: 10,
+                  itemBuilder: (context, index) {
+                    return Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 20.w),
+                      child: MenuCard(url: 'assets/images/dish.png'),
+                    );
+                  },
                 ),
-              )
-      
-      
+              ),
           ],
         ),
       ),

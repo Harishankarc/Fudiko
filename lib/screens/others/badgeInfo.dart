@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fudiko/components/apptext.dart';
 import 'package:fudiko/utils/constants.dart';
 
@@ -17,18 +18,18 @@ class BadgeInfo extends StatelessWidget {
                 Navigator.pop(context);
               },
               child: Padding(
-                padding: const EdgeInsets.only(left: 30, top: 10),
+                padding:  EdgeInsets.only(left: 30.w, top: 10.h),
                 child: Align(
                   alignment: Alignment.centerLeft,
                   child: Icon(
                     Icons.arrow_back_ios_new,
                     color: appTextColor3,
-                    size: 28,
+                    size: 28.w,
                   ),
                 ),
               ),
             ),
-            const SizedBox(height: 60),
+             SizedBox(height: 60.h),
             AppText(
               text: "Early Bird",
               size: 20,
@@ -36,19 +37,19 @@ class BadgeInfo extends StatelessWidget {
               isCentered: true,
               color: appToggleColor,
             ),
-            const SizedBox(height: 10),
+             SizedBox(height: 10.h),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Image.asset(
                   'assets/images/verificationgreen.png',
-                  width: 150,
-                  height: 150,
+                  width: 150.w,
+                  height: 150.h,
                   fit: BoxFit.contain,
                 ),
               ],
             ),
-            const SizedBox(height: 30),
+             SizedBox(height: 30.h),
             AppText(
               text: "Your next badge is on its way!",
               size: 10,
@@ -56,12 +57,12 @@ class BadgeInfo extends StatelessWidget {
               isCentered: true,
               color: Colors.black,
             ),
-            const SizedBox(height: 20),
+             SizedBox(height: 20.h),
             Padding(
               padding: const EdgeInsets.only(left: 50, right: 50),
               child: gradientProgressBar(70),
             ),
-            const SizedBox(height: 20),
+             SizedBox(height: 20.h),
             AppText(
               text: "87/100",
               size: 15,
@@ -69,9 +70,9 @@ class BadgeInfo extends StatelessWidget {
               isCentered: true,
               color: Colors.black,
             ),
-            const SizedBox(height: 60),
+             SizedBox(height: 60.h),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 50),
+              padding:  EdgeInsets.symmetric(horizontal: 50.w),
               child: Wrap(
                 spacing: 10,
                 runSpacing: 10,
@@ -79,8 +80,8 @@ class BadgeInfo extends StatelessWidget {
                   25,
                   (index) => Image.asset(
                     'assets/images/verificationgrey.png',
-                    width: 50,
-                    height: 50,
+                    width: 50.w,
+                    height: 50.h,
                     fit: BoxFit.contain,
                   )
                 ),
@@ -101,7 +102,7 @@ class BadgeInfo extends StatelessWidget {
           children: [
             // Background
             Container(
-              height: 10,
+              height: 10.h,
               width: constraints.maxWidth,
               decoration: BoxDecoration(
                 color: Colors.grey[300],
@@ -110,7 +111,7 @@ class BadgeInfo extends StatelessWidget {
             ),
             // Foreground
             ClipRRect(
-              borderRadius: BorderRadius.circular(5),
+              borderRadius: BorderRadius.circular(5.r),
               child: Container(
                 height: 10,
                 width: constraints.maxWidth * (clampedPercentage / 100),

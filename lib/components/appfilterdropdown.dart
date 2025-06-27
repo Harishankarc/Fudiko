@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class AppFilterDropDown extends StatefulWidget {
   final List<String>? items;
@@ -44,10 +45,10 @@ class _AppFilterDropDownState extends State<AppFilterDropDown> {
         GestureDetector(
           onTap: widget.toogleDropdown,
           child: Container(
-            height: widget.height ?? 45,
+            height: widget.height?.h ?? 45.h,
             decoration: BoxDecoration(
               color: Colors.white,
-              borderRadius: BorderRadius.circular(12),
+              borderRadius: BorderRadius.circular(12.r),
               boxShadow: [
                 BoxShadow(
                   color: Colors.black.withOpacity(0.1),
@@ -61,15 +62,15 @@ class _AppFilterDropDownState extends State<AppFilterDropDown> {
               children: [
                 if (widget.icon != null)
                   Positioned(
-                    left: 12,
-                    child: Icon(widget.icon, size: 20, color: Colors.black87),
+                    left: 12.w,
+                    child: Icon(widget.icon, size: 15.w, color: Colors.black87),
                   ),
 
                 Center(
                   child: Text(
                     selectedValue ?? widget.hint,
                     style: TextStyle(
-                      fontSize: 14,
+                      fontSize: 12.sp,
                       color: widget.textColor ?? Colors.black87,
                       fontWeight: FontWeight.w500,
                     ),
@@ -77,12 +78,12 @@ class _AppFilterDropDownState extends State<AppFilterDropDown> {
                 ),
 
                 Positioned(
-                  right: 12,
+                  right: 12.w,
                   child: Icon(
                     isOpen
                         ? Icons.keyboard_arrow_up
                         : Icons.keyboard_arrow_down,
-                    size: 24,
+                    size: 15.w,
                     color: Colors.black87,
                   ),
                 ),

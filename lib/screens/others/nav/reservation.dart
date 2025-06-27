@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fudiko/components/appbutton.dart';
 import 'package:fudiko/components/appfilterdropdown.dart';
 import 'package:fudiko/components/apptext.dart';
@@ -31,13 +32,13 @@ class _ReservationState extends State<Reservation> {
       body: Stack(
         children: [
           Padding(
-            padding: const EdgeInsets.only(top: 60),
+            padding:  EdgeInsets.only(top: 30.h),
             child: SingleChildScrollView(
               physics: const BouncingScrollPhysics(),
               child: Column(
                 children: [
                   Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 30),
+                    padding:  EdgeInsets.symmetric(horizontal: 20.w),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       crossAxisAlignment: CrossAxisAlignment.center,
@@ -61,10 +62,10 @@ class _ReservationState extends State<Reservation> {
                               children: [
                                 Icon(
                                   Icons.location_on,
-                                  size: 15,
+                                  size: 15.w,
                                   color: appTextColor3,
                                 ),
-                                const SizedBox(width: 5),
+                                 SizedBox(width: 5.w),
                                 AppText(
                                   text: "Ulitsa Serpukhovskiy Val-14",
                                   size: 15,
@@ -79,33 +80,33 @@ class _ReservationState extends State<Reservation> {
                           onTap: widget.onDrawerTap,
                           child: Icon(
                             Icons.menu,
-                            size: 30,
+                            size: 30.w,
                             color: appTextColor3,
                           ),
                         ),
                       ],
                     ),
                   ),
-                  const SizedBox(height: 30),
+                   SizedBox(height: 30.h),
                   Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 30),
+                    padding:  EdgeInsets.symmetric(horizontal: 20.w),
                     child: !isSearchClicked
                         ? Column(
                             children: [
                               Row(
                                 children: [
                                   buildStatusButton("Processing"),
-                                  const SizedBox(width: 10),
+                                   SizedBox(width: 10.w),
                                   buildStatusButton("Confirmed"),
                                 ],
                               ),
-                              const SizedBox(height: 10),
+                               SizedBox(height: 10.h),
                               Row(
                                 children: [
                                   buildStatusButton("Completed"),
-                                  const SizedBox(width: 10),
+                                   SizedBox(width: 10.w),
                                   buildStatusButton("Rejected"),
-                                  const SizedBox(width: 10),
+                                   SizedBox(width: 10.w),
                                   GestureDetector(
                                     onTap: () {
                                       setState(() {
@@ -114,11 +115,11 @@ class _ReservationState extends State<Reservation> {
                                       });
                                     },
                                     child: Container(
-                                      height: 35,
-                                      width: 50,
+                                      height: 35.h,
+                                      width: 50.w,
                                       decoration: BoxDecoration(
                                         color: Colors.white,
-                                        borderRadius: BorderRadius.circular(10),
+                                        borderRadius: BorderRadius.circular(10.r),
                                         boxShadow: [
                                           BoxShadow(
                                             color: Colors.grey.withOpacity(0.3),
@@ -130,7 +131,7 @@ class _ReservationState extends State<Reservation> {
                                       child: Icon(
                                         Icons.search,
                                         color: appTextColor3,
-                                        size: 20,
+                                        size: 20.w,
                                       ),
                                     ),
                                   ),
@@ -145,7 +146,7 @@ class _ReservationState extends State<Reservation> {
                             iconColor: appButtonColor,
                           ),
                   ),
-                  const SizedBox(height: 30),
+                   SizedBox(height: 30.h),
                   if (selectedStatus == "Processing")
                     buildList(
                       10,
@@ -163,14 +164,13 @@ class _ReservationState extends State<Reservation> {
                     Column(
                       children: [
                         Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 30),
+                          padding:  EdgeInsets.symmetric(horizontal: 20.w),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
                               SizedBox(
                                 width: MediaQuery.of(context).size.width / 2,
                                 child: AppFilterDropDown(
-                                  items: ["Item1", "Item2", "Item3", "Item4"],
                                   hint: "Last 7 days",
                                   icon: Icons.tune,
                                 ),
@@ -178,7 +178,7 @@ class _ReservationState extends State<Reservation> {
                             ],
                           ),
                         ),
-                        const SizedBox(height: 20),
+                         SizedBox(height: 20.h),
                         buildList(3, const CompletedBox()),
                       ],
                     )
@@ -196,19 +196,18 @@ class _ReservationState extends State<Reservation> {
                 alignment: Alignment.center,
                 color: Colors.black.withOpacity(0.6),
                 child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 30),
+                  padding:  EdgeInsets.symmetric(horizontal: 20.w),
                   child: Container(
-                    height: 400,
                     width: double.infinity,
-                    padding: const EdgeInsets.only(
-                      left: 20,
-                      right: 20,
-                      top: 30,
-                      bottom: 30,
+                    padding:  EdgeInsets.only(
+                      left: 20.w,
+                      right: 20.w,
+                      top: 30.h,
+                      bottom: 30.h,
                     ),
                     decoration: BoxDecoration(
                       color: Colors.white,
-                      borderRadius: BorderRadius.circular(15),
+                      borderRadius: BorderRadius.circular(15.r),
                       boxShadow: [
                         BoxShadow(
                           color: Colors.black.withOpacity(0.1),
@@ -218,22 +217,23 @@ class _ReservationState extends State<Reservation> {
                       ],
                     ),
                     child: Padding(
-                      padding: const EdgeInsets.only(
-                        top: 20,
-                        bottom: 20,
-                        left: 10,
-                        right: 10,
+                      padding:  EdgeInsets.only(
+                        top: 20.h,
+                        bottom: 20.h,
+                        left: 10.w,
+                        right: 10.w,
                       ),
                       child: Column(
+                        mainAxisSize: MainAxisSize.min,
                         children: [
                           AppText(
                             text: "Reason",
-                            size: 15,
+                            size: 15.sp,
                             fontWeight: FontWeight.w700,
                             color: appButtonColor2,
                             isCentered: true,
                           ),
-                          SizedBox(height: 20),
+                          SizedBox(height: 20.h),
                           Row(
                             children: [
                               buildReasonButton(
@@ -241,58 +241,54 @@ class _ReservationState extends State<Reservation> {
                               ),
                             ],
                           ),
-                          SizedBox(height: 10),
+                          SizedBox(height: 10.h),
                           Row(
                             children: [
                               buildReasonButton("Offer Expired"),
-                              const SizedBox(width: 10),
+                               SizedBox(width: 10.w),
                               buildReasonButton("Not Valid"),
                             ],
                           ),
-                          SizedBox(height: 10),
+                          SizedBox(height: 10.h),
                           Row(
                             children: [
                               buildReasonButton("Maximum Redemptions Reached"),
                             ],
                           ),
-                          SizedBox(height: 10),
+                          SizedBox(height: 10.h),
                           Row(
                             children: [
                               buildReasonButton("Technical Issue"),
-                              const SizedBox(width: 10),
+                               SizedBox(width: 10.w),
                               buildReasonButton("Not Opened"),
                             ],
                           ),
-                          SizedBox(height: 15),
-                          Expanded(
-                            child: SizedBox(
-                              height: 35,
-                              child: AppButton(
-                                text: "Cancel",
-                                onPressed: () {},
-                                bgColor1: Colors.blue,
-                                bgColor2: Colors.blue,
-                                size: 15,
-                                borderRadius: 5,
-                              ),
+                          SizedBox(height: 25.h),
+                          SizedBox(
+                            height: 35.h,
+                            child: AppButton(
+                              text: "Cancel",
+                              onPressed: () {},
+                              bgColor1: Colors.blue,
+                              bgColor2: Colors.blue,
+                              size: 12,
+                              borderRadius: 5,
                             ),
                           ),
-                          SizedBox(height: 10),
-                          Expanded(
-                            child: SizedBox(
-                              height: 35,
-                              child: AppButton(
-                                text: "Confirm Rejection",
-                                onPressed: () {
-                                  setState(() {
-                                    isOpen = !isOpen;
-                                  });
-                                },
-                                bgColor1: Colors.red,
-                                bgColor2: Colors.red,
-                                size: 15,
-                                borderRadius: 5,
-                              ),
+                          SizedBox(height: 10.h),
+                          SizedBox(
+                            height: 35.h,
+                            child: AppButton(
+                              text: "Confirm Rejection",
+                              onPressed: () {
+                                setState(() {
+                                  isOpen = !isOpen;
+                                });
+                              },
+                              bgColor1: Colors.red,
+                              bgColor2: Colors.red,
+                              size: 12,
+                              borderRadius: 5,
                             ),
                           ),
                         ],
@@ -309,7 +305,7 @@ class _ReservationState extends State<Reservation> {
 
   Widget buildList(int count, Widget item) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 30),
+      padding:  EdgeInsets.symmetric(horizontal: 20.w),
       child: ListView.builder(
         itemCount: count,
         shrinkWrap: true,
@@ -330,7 +326,7 @@ class _ReservationState extends State<Reservation> {
           });
         },
         child: Container(
-          height: 35,
+          height: 35.h,
           alignment: Alignment.center,
           decoration: BoxDecoration(
             gradient: isSelected
@@ -339,7 +335,7 @@ class _ReservationState extends State<Reservation> {
                   )
                 : null,
             color: isSelected ? null : Colors.white,
-            borderRadius: BorderRadius.circular(10),
+            borderRadius: BorderRadius.circular(10.r),
             boxShadow: [
               BoxShadow(
                 color: Colors.black.withOpacity(0.2),
@@ -351,7 +347,7 @@ class _ReservationState extends State<Reservation> {
           child: Text(
             text,
             style: TextStyle(
-              fontSize: 13,
+              fontSize: 13.sp,
               fontWeight: FontWeight.w500,
               color: isSelected ? Colors.white : appTextColor3,
             ),
@@ -372,7 +368,7 @@ class _ReservationState extends State<Reservation> {
           });
         },
         child: Container(
-          height: 35,
+          height: 35.h,
           alignment: Alignment.center,
           decoration: BoxDecoration(
             gradient: isSelected
@@ -393,7 +389,7 @@ class _ReservationState extends State<Reservation> {
           child: Text(
             text,
             style: TextStyle(
-              fontSize: 13,
+              fontSize: 13.sp,
               fontWeight: FontWeight.w500,
               color: isSelected ? Colors.white : Colors.black,
             ),

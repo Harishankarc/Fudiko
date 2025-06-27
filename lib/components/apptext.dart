@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fudiko/utils/constants.dart';
 
 class AppText extends StatelessWidget {
@@ -27,10 +28,10 @@ class AppText extends StatelessWidget {
       text,
       textAlign: isCentered ?? false ? TextAlign.center : TextAlign.start,
       style: TextStyle(
-        fontSize: size,
+        fontSize: size.sp,
         fontWeight: fontWeight,
         color: color ??appTextColor,
-        height: lineSpacing ?? 1.0
+        height: lineSpacing ?? 1.0,
       )
     );
   }

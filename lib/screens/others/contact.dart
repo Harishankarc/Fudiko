@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fudiko/utils/constants.dart';
 
 class ContactPage extends StatelessWidget {
@@ -16,133 +17,133 @@ class ContactPage extends StatelessWidget {
                 Navigator.pop(context);
               },
               child: Padding(
-                padding: const EdgeInsets.only(left: 30, top: 10),
+                padding:  EdgeInsets.only(left: 30.w, top: 10.h),
                 child: Align(
                   alignment: Alignment.centerLeft,
                   child: Icon(
                     Icons.arrow_back_ios_new,
                     color: appTextColor3,
-                    size: 28,
+                    size: 28.w,
                   ),
                 ),
               ),
             ),
-            const SizedBox(height: 100),
+             SizedBox(height: 100.h),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 30),
+              padding:  EdgeInsets.symmetric(horizontal: 20.w),
               child: Container(
                 width: double.infinity,
-                height: 70,
+                height: 70.h,
                 decoration: BoxDecoration(
                   color: Colors.white,
-                  borderRadius: BorderRadius.circular(15),
+                  borderRadius: BorderRadius.circular(15.r),
                   boxShadow: [
                     BoxShadow(
                       color: Colors.black.withOpacity(0.3),
                       blurRadius: 8,
-                      offset: const Offset(0, 2),
+                      offset:  Offset(0, 2),
                     ),
                   ],
                 ),
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    const SizedBox(width: 20),
-                    Icon(Icons.mail, size: 35, color: appButtonColor),
-                    const SizedBox(width: 20),
+                     SizedBox(width: 20.w),
+                    Icon(Icons.mail, size: 35.w, color: appButtonColor),
+                     SizedBox(width: 20.w),
                     Expanded(
                       child: Center(
                         child: Text(
                           'Mail Us',
                           style: TextStyle(
-                            fontSize: 16,
+                            fontSize: 16.sp,
                             fontWeight: FontWeight.w500,
                             color: appTextColor3,
                           ),
                         ),
                       ),
                     ),
-                    const SizedBox(width: 50), // To balance icon space
+                     SizedBox(width: 50.w),
                   ],
                 ),
               ),
             ),
             SizedBox(height: 20),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 30),
+              padding:  EdgeInsets.symmetric(horizontal: 20.w),
               child: Container(
                 width: double.infinity,
-                height: 70,
+                height: 70.h,
                 decoration: BoxDecoration(
                   color: Colors.white,
-                  borderRadius: BorderRadius.circular(15),
+                  borderRadius: BorderRadius.circular(15.r),
                   boxShadow: [
                     BoxShadow(
                       color: Colors.black.withOpacity(0.3),
                       blurRadius: 8,
-                      offset: const Offset(0, 2),
+                      offset:  Offset(0, 2),
                     ),
                   ],
                 ),
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    const SizedBox(width: 20),
-                    Icon(Icons.message, size: 35, color: appButtonColor),
-                    const SizedBox(width: 20),
+                     SizedBox(width: 20.w),
+                    Icon(Icons.message, size: 35.sp, color: appButtonColor),
+                     SizedBox(width: 20.w),
                     Expanded(
                       child: Center(
                         child: Text(
                           'Chat with Us',
                           style: TextStyle(
-                            fontSize: 16,
+                            fontSize: 16.sp,
                             fontWeight: FontWeight.w500,
                             color: appTextColor3,
                           ),
                         ),
                       ),
                     ),
-                    const SizedBox(width: 50), // To balance icon space
+                     SizedBox(width: 50.w),
                   ],
                 ),
               ),
             ),
-            SizedBox(height: 20),
+            SizedBox(height: 20.h),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 30),
+              padding:  EdgeInsets.symmetric(horizontal: 20.r),
               child: Container(
                 width: double.infinity,
-                height: 70,
+                height: 70.h,
                 decoration: BoxDecoration(
                   color: Colors.white,
-                  borderRadius: BorderRadius.circular(15),
+                  borderRadius: BorderRadius.circular(15.r),
                   boxShadow: [
                     BoxShadow(
                       color: Colors.black.withOpacity(0.3),
                       blurRadius: 8,
-                      offset: const Offset(0, 2),
+                      offset:  Offset(0, 2),
                     ),
                   ],
                 ),
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    const SizedBox(width: 20),
-                    Icon(Icons.phone, size: 35, color: appButtonColor),
-                    const SizedBox(width: 20),
+                     SizedBox(width: 20.w),
+                    Icon(Icons.phone, size: 35.w, color: appButtonColor),
+                     SizedBox(width: 20.w),
                     Expanded(
                       child: Center(
                         child: Text(
                           'Contact Us',
                           style: TextStyle(
-                            fontSize: 16,
+                            fontSize: 16.sp,
                             fontWeight: FontWeight.w500,
                             color: appTextColor3,
                           ),
                         ),
                       ),
                     ),
-                    const SizedBox(width: 50), // To balance icon space
+                     SizedBox(width: 50.w),
                   ],
                 ),
               ),

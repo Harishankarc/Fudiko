@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fudiko/components/appbutton.dart';
 import 'package:fudiko/components/appdropdown.dart';
 import 'package:fudiko/components/apptext.dart';
@@ -17,22 +18,22 @@ class InfoPage extends StatelessWidget {
             child: ConstrainedBox(
               constraints: BoxConstraints(minHeight: constraints.maxHeight),
               child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: 30),
+                padding: EdgeInsets.symmetric(horizontal: 30.w),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    SizedBox(height: 60), // Optional top spacing
+                    SizedBox(height: 60.h),
                     ClipOval(
                       child: Image.asset(
                         'assets/images/avatar.png',
-                        width: 150,
-                        height: 150,
+                        width: 150.w,
+                        height: 150.h,
                         fit: BoxFit.cover,
                       ),
                     ),
-                    SizedBox(height: 20),
+                    SizedBox(height: 20.h),
                     AppTextFeild(text: "Establishment Name"),
-                    SizedBox(height: 20),
+                    SizedBox(height: 20.h),
                     AppDropDown(
                       hint: 'Establishment type',
                       toggleDropdown: (){
@@ -40,62 +41,62 @@ class InfoPage extends StatelessWidget {
                           backgroundColor: Colors.white,
                           context: context,
                           isScrollControlled: true,
-                          shape: const RoundedRectangleBorder(
+                          shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.vertical(
-                              top: Radius.circular(25),
+                              top: Radius.circular(25.r),
                             ),
                           ),
                           builder: (context) {
                             return Padding(
-                              padding: const EdgeInsets.all(30),
+                              padding:  EdgeInsets.all(30.r),
                               child: Column(
                                 mainAxisSize: MainAxisSize.min,
                                 children: [
                                   Container(
-                                    width: 40,
-                                    height: 5,
+                                    width: 40.w,
+                                    height: 5.h,
                                     decoration: BoxDecoration(
                                       color: Colors.grey[300],
                                       borderRadius: BorderRadius.circular(10),
                                     ),
                                   ),
-                                  const SizedBox(height: 16),
+                                   SizedBox(height: 16.h),
                                   Container(
                                     width: MediaQuery.of(context).size.width,
                                     decoration: BoxDecoration(
                                       color: Colors.white,
-                                      borderRadius: BorderRadius.circular(20),
+                                      borderRadius: BorderRadius.circular(20.r),
                                     ),
-                                    padding: const EdgeInsets.all(16),
+                                    padding:  EdgeInsets.all(16.r),
                                     child: Column(
                                       children: [
                                         Divider(color: Colors.grey[200]),
-                                        const SizedBox(height: 10),
+                                         SizedBox(height: 10.h),
                                         AppText(
                                           text: "item1",
                                           size: 15,
                                           fontWeight: FontWeight.w500,
                                           color: Colors.black,
                                         ),
-                                        const SizedBox(height: 10),
+                                         SizedBox(height: 10.h),
                                         Divider(color: Colors.grey[200]),
-                                        const SizedBox(height: 10),
+                                         SizedBox(height: 10.h),
                                         AppText(
                                           text: "item2",
                                           size: 15,
                                           fontWeight: FontWeight.w500,
                                           color: Colors.black,
                                         ),
-                                        const SizedBox(height: 10),
+                                         SizedBox(height: 10.h),
                                         Divider(color: Colors.grey[200]),
-                                        const SizedBox(height: 10),
+                                         SizedBox(height: 10.h),
                                         AppText(
                                           text: "item3",
                                           size: 15,
                                           fontWeight: FontWeight.w500,
                                           color: Colors.black,
                                         ),
-                                        const SizedBox(height: 10),
+                                         SizedBox(height: 10.h),
                                         Divider(color: Colors.grey[200]),
                                       ],
                                     ),
@@ -107,12 +108,12 @@ class InfoPage extends StatelessWidget {
                         );
                       },
                     ),
-                    SizedBox(height: 20),
+                    SizedBox(height: 20.h),
                     Container(
-                      height: 200,
+                      height: 200.h,
                       decoration: BoxDecoration(
                         color: Colors.white,
-                        borderRadius: BorderRadius.circular(20),
+                        borderRadius: BorderRadius.circular(20.r),
                         boxShadow: [
                           BoxShadow(
                             color: Colors.black.withOpacity(0.2),
@@ -122,9 +123,9 @@ class InfoPage extends StatelessWidget {
                         ],
                       ),
                     ),
-                    SizedBox(height: 20),
+                    SizedBox(height: 20.h),
                     AppTextFeild(text: "Location"),
-                    SizedBox(height: 40),
+                    SizedBox(height: 40.h),
                     AppButton(
                       text: 'Continue',
                       onPressed: () {
@@ -134,7 +135,7 @@ class InfoPage extends StatelessWidget {
                         );
                       },
                     ),
-                    SizedBox(height: 60), // Optional bottom spacing
+                    SizedBox(height: 60.h), // Optional bottom spacing
                   ],
                 ),
               ),

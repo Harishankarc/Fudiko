@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fudiko/components/apptext.dart';
 import 'package:fudiko/components/bottomnav.dart';
 import 'package:fudiko/screens/auth/changepassword.dart';
@@ -9,7 +10,7 @@ import 'package:fudiko/screens/others/badgeInfo.dart';
 import 'package:fudiko/screens/others/contact.dart';
 import 'package:fudiko/screens/others/languages.dart';
 import 'package:fudiko/screens/others/nav/banquet.dart';
-import 'package:fudiko/screens/others/nav/offers.dart';
+import 'package:fudiko/screens/others/nav/offers/offers.dart';
 import 'package:fudiko/screens/others/nav/profile.dart';
 import 'package:fudiko/screens/others/nav/reservation.dart';
 import 'package:fudiko/screens/others/nav/takeaway.dart';
@@ -81,38 +82,39 @@ class _MainNavPageState extends State<MainNavPage> {
           selectedIndex: currentIndex,
           onTabSelected: onTabChanged,
         ),
-        floatingActionButton: GestureDetector(
-          onTap: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => Scanner()),
-            );
-          },
-          child: Container(
-            margin: const EdgeInsets.all(16),
-            height: 60,
-            width: 60,
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(20),
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.black.withOpacity(0.5),
-                  blurRadius: 10,
-                  offset: Offset(0, 4),
+        floatingActionButton: currentIndex == 2
+            ? null
+            : GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Scanner()),
+                  );
+                },
+                child: Container(
+                  height: 60.h,
+                  width: 60.w,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(20.r),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black.withOpacity(0.5),
+                        blurRadius: 10,
+                        offset: Offset(0, 4),
+                      ),
+                    ],
+                  ),
+                  child: Center(
+                    child: Image.asset(
+                      'assets/images/scanner2.png',
+                      height: 60.h,
+                      width: 60.w,
+                      fit: BoxFit.cover,
+                    ),
+                  ),
                 ),
-              ],
-            ),
-            child: Center(
-              child: Image.asset(
-                'assets/images/scanner2.png',
-                height: 60,
-                width: 60,
-                fit: BoxFit.contain,
               ),
-            ),
-          ),
-        ),
         body: Stack(
           children: [
             screens[currentIndex],
@@ -149,189 +151,192 @@ class _MainNavPageState extends State<MainNavPage> {
                 ),
                 child: SafeArea(
                   child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 20),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        SizedBox(height: 100),
-                        AppText(
-                          text: "Settings",
-                          size: 15,
-                          fontWeight: FontWeight.w600,
-                          color: appTextColor2,
-                        ),
-                        SizedBox(height: 10),
-                        Divider(thickness: 1, color: Colors.grey, height: 1),
-                        Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 10),
-                          child: Column(
-                            children: [
-                              SizedBox(height: 10),
-                              _drawerItem(
-                                "Change Password",
-                                Icons.lock,
-                                ChangePassword(),
-                              ),
-                              SizedBox(height: 10),
-                              Divider(
-                                thickness: 1,
-                                color: Colors.grey,
-                                height: 1,
-                              ),
-                              SizedBox(height: 10),
-                              _drawerItem(
-                                "Notifications",
-                                Icons.notifications,
-                                NotificationPage(),
-                              ),
-                              SizedBox(height: 10),
-                              Divider(
-                                thickness: 1,
-                                color: Colors.grey,
-                                height: 1,
-                              ),
-                              SizedBox(height: 10),
-                              _drawerItem(
-                                "Languages",
-                                Icons.translate,
-                                Languages(),
-                              ),
-                              SizedBox(height: 10),
-                              Divider(
-                                thickness: 1,
-                                color: Colors.grey,
-                                height: 1,
-                              ),
-                              SizedBox(height: 10),
-                              _drawerItem(
-                                "Analytics",
-                                Icons.analytics,
-                                TotalOrders(),
-                              ),
-                              SizedBox(height: 10),
-                              Divider(
-                                thickness: 1,
-                                color: Colors.grey,
-                                height: 1,
-                              ),
-                              SizedBox(height: 10),
-                              _drawerItem(
-                                "Service",
-                                Icons.handyman,
-                                ServicePage(),
-                              ),
-                              SizedBox(height: 10),
-                              Divider(
-                                thickness: 1,
-                                color: Colors.grey,
-                                height: 1,
-                              ),
-                              SizedBox(height: 10),
-                              _drawerItem(
-                                "Promotions",
-                                Icons.campaign_outlined,
-                              ),
-                              SizedBox(height: 10),
-                              Divider(
-                                thickness: 1,
-                                color: Colors.grey,
-                                height: 1,
-                              ),
-                            ],
+                    padding: EdgeInsets.symmetric(horizontal: 20.w),
+                    child: SingleChildScrollView(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          SizedBox(height: 100.h),
+                          AppText(
+                            text: "Settings",
+                            size: 15,
+                            fontWeight: FontWeight.w600,
+                            color: appTextColor2,
                           ),
-                        ),
+                          SizedBox(height: 10.h),
+                          Divider(thickness: 1, color: Colors.grey, height: 1),
+                          Padding(
+                            padding: EdgeInsets.symmetric(horizontal: 10.w),
+                            child: Column(
+                              children: [
+                                SizedBox(height: 10.h),
+                                _drawerItem(
+                                  "Change Password",
+                                  Icons.lock,
+                                  ChangePassword(),
+                                ),
+                                SizedBox(height: 10.h),
+                                Divider(
+                                  thickness: 1,
+                                  color: Colors.grey,
+                                  height: 1,
+                                ),
+                                SizedBox(height: 10.h),
+                                _drawerItem(
+                                  "Notifications",
+                                  Icons.notifications,
+                                  NotificationPage(),
+                                ),
+                                SizedBox(height: 10.h),
+                                Divider(
+                                  thickness: 1,
+                                  color: Colors.grey,
+                                  height: 1,
+                                ),
+                                SizedBox(height: 10.h),
+                                _drawerItem(
+                                  "Languages",
+                                  Icons.translate,
+                                  Languages(),
+                                ),
+                                SizedBox(height: 10.h),
+                                Divider(
+                                  thickness: 1,
+                                  color: Colors.grey,
+                                  height: 1,
+                                ),
+                                SizedBox(height: 10.h),
+                                _drawerItem(
+                                  "Analytics",
+                                  Icons.analytics,
+                                  TotalOrders(),
+                                ),
+                                SizedBox(height: 10.h),
+                                Divider(
+                                  thickness: 1,
+                                  color: Colors.grey,
+                                  height: 1,
+                                ),
+                                SizedBox(height: 10.h),
+                                _drawerItem(
+                                  "Service",
+                                  Icons.handyman,
+                                  ServicePage(),
+                                ),
+                                SizedBox(height: 10.h),
+                                Divider(
+                                  thickness: 1,
+                                  color: Colors.grey,
+                                  height: 1,
+                                ),
+                                SizedBox(height: 10.h),
+                                _drawerItem(
+                                  "Promotions",
+                                  Icons.campaign_outlined,
+                                ),
+                                SizedBox(height: 10.h),
+                                Divider(
+                                  thickness: 1,
+                                  color: Colors.grey,
+                                  height: 1,
+                                ),
+                              ],
+                            ),
+                          ),
 
-                        SizedBox(height: 50),
-                        AppText(
-                          text: "Information",
-                          size: 15,
-                          fontWeight: FontWeight.w600,
-                          color: appTextColor2,
-                        ),
-                        SizedBox(height: 10),
-                        Divider(thickness: 1, color: Colors.grey, height: 1),
-                        Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 10),
-                          child: Column(
-                            children: [
-                              SizedBox(height: 10),
-                              _drawerItem(
-                                "About the App",
-                                Icons.info,
-                                AboutPage(),
-                              ),
-                              SizedBox(height: 10),
-                              Divider(
-                                thickness: 1,
-                                color: Colors.grey,
-                                height: 1,
-                              ),
-                              SizedBox(height: 10),
-                              _drawerItem(
-                                "Badge Earnings",
-                                Icons.shield,
-                                BadgeInfo(),
-                              ),
-                              SizedBox(height: 10),
-                              Divider(
-                                thickness: 1,
-                                color: Colors.grey,
-                                height: 1,
-                              ),
-                              SizedBox(height: 10),
-                              _drawerItem(
-                                "Documentation",
-                                Icons.receipt_long,
-                                AgreementPage(),
-                              ),
-                              SizedBox(height: 10),
-                              Divider(
-                                thickness: 1,
-                                color: Colors.grey,
-                                height: 1,
-                              ),
-                              SizedBox(height: 10),
-                              _drawerItem(
-                                "Support",
-                                Icons.support_agent,
-                                ContactPage(),
-                              ),
-                              SizedBox(height: 10),
-                              Divider(
-                                thickness: 1,
-                                color: Colors.grey,
-                                height: 1,
-                              ),
-                            ],
+                          SizedBox(height: 50.h),
+                          AppText(
+                            text: "Information",
+                            size: 15,
+                            fontWeight: FontWeight.w600,
+                            color: appTextColor2,
                           ),
-                        ),
-                        SizedBox(height: 50),
-                        Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 10),
-                          child: Column(
-                            children: [
-                              Divider(
-                                thickness: 1,
-                                color: Colors.red,
-                                height: 1,
-                              ),
-                              SizedBox(height: 10),
-                              _drawerItem(
-                                "Log Out",
-                                Icons.logout,
-                                Login(),
-                                Colors.red,
-                              ),
-                              SizedBox(height: 10),
-                              Divider(
-                                thickness: 1,
-                                color: Colors.red,
-                                height: 1,
-                              ),
-                            ],
+                          SizedBox(height: 10.h),
+                          Divider(thickness: 1, color: Colors.grey, height: 1),
+                          Padding(
+                            padding: EdgeInsets.symmetric(horizontal: 10.w),
+                            child: Column(
+                              children: [
+                                SizedBox(height: 10.h),
+                                _drawerItem(
+                                  "About the App",
+                                  Icons.info,
+                                  AboutPage(),
+                                ),
+                                SizedBox(height: 10.h),
+                                Divider(
+                                  thickness: 1,
+                                  color: Colors.grey,
+                                  height: 1,
+                                ),
+                                SizedBox(height: 10.h),
+                                _drawerItem(
+                                  "Badge Earnings",
+                                  Icons.shield,
+                                  BadgeInfo(),
+                                ),
+                                SizedBox(height: 10.h),
+                                Divider(
+                                  thickness: 1,
+                                  color: Colors.grey,
+                                  height: 1,
+                                ),
+                                SizedBox(height: 10.h),
+                                _drawerItem(
+                                  "Documentation",
+                                  Icons.receipt_long,
+                                  AgreementPage(),
+                                ),
+                                SizedBox(height: 10.h),
+                                Divider(
+                                  thickness: 1,
+                                  color: Colors.grey,
+                                  height: 1,
+                                ),
+                                SizedBox(height: 10.h),
+                                _drawerItem(
+                                  "Support",
+                                  Icons.support_agent,
+                                  ContactPage(),
+                                ),
+                                SizedBox(height: 10.h),
+                                Divider(
+                                  thickness: 1,
+                                  color: Colors.grey,
+                                  height: 1,
+                                ),
+                              ],
+                            ),
                           ),
-                        ),
-                      ],
+                          SizedBox(height: 50.h),
+                          Padding(
+                            padding: EdgeInsets.symmetric(horizontal: 10.h),
+                            child: Column(
+                              children: [
+                                Divider(
+                                  thickness: 1,
+                                  color: Colors.red,
+                                  height: 1,
+                                ),
+                                SizedBox(height: 10.h),
+                                _drawerItem(
+                                  "Log Out",
+                                  Icons.logout,
+                                  Login(),
+                                  Colors.red,
+                                ),
+                                SizedBox(height: 10.h),
+                                Divider(
+                                  thickness: 1,
+                                  color: Colors.red,
+                                  height: 1,
+                                ),
+                                SizedBox(height: 10.h),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ),
@@ -355,7 +360,6 @@ class _MainNavPageState extends State<MainNavPage> {
           isDrawerOpen = false;
         });
 
-        // Delay navigation until after setState completes
         Future.delayed(Duration(milliseconds: 100), () {
           if (routeWidget != null) {
             if (routeWidget is Login) {
@@ -375,8 +379,8 @@ class _MainNavPageState extends State<MainNavPage> {
       },
       child: Row(
         children: [
-          Icon(icon, size: 20, color: color ?? appTextColor2),
-          SizedBox(width: 10),
+          Icon(icon, size: 20.w, color: color ?? appTextColor2),
+          SizedBox(width: 10.w),
           AppText(
             text: text,
             size: 15,
@@ -387,5 +391,4 @@ class _MainNavPageState extends State<MainNavPage> {
       ),
     );
   }
-
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fudiko/components/appbutton.dart';
 import 'package:fudiko/components/apptext.dart';
 import 'package:fudiko/utils/constants.dart';
@@ -10,11 +11,11 @@ class ProcessingBox extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(bottom: 20),
+      padding:  EdgeInsets.only(bottom: 20.h),
       child: Container(
         decoration: BoxDecoration(
           color: Colors.white,
-          borderRadius: BorderRadius.circular(20),
+          borderRadius: BorderRadius.circular(20.r),
           boxShadow: [
             BoxShadow(
               color: Colors.black.withOpacity(0.2),
@@ -24,7 +25,7 @@ class ProcessingBox extends StatelessWidget {
           ],
         ),
         child: Padding(
-          padding: const EdgeInsets.all(20),
+          padding:  EdgeInsets.all(20.r),
           child: Column(
             children: [
               Row(
@@ -40,22 +41,22 @@ class ProcessingBox extends StatelessWidget {
                         fontWeight: FontWeight.bold,
                         color: appTextColor3,
                       ),
-                      SizedBox(height: 10),
+                      SizedBox(height: 10.h),
                       Row(
                         children: [
                           Icon(
                             Icons.local_offer_sharp,
                             color: appTextColor5,
-                            size: 18,
+                            size: 18.w,
                           ),
-                          SizedBox(width: 5),
+                          SizedBox(width: 5.w),
                           RichText(
                             text: TextSpan(
                               children: [
                                 TextSpan(
                                   text: '25%',
                                   style: TextStyle(
-                                    fontSize: 15,
+                                    fontSize: 15.sp,
                                     fontWeight: FontWeight.w900,
                                     color: appTextColor5,
                                   ),
@@ -63,7 +64,7 @@ class ProcessingBox extends StatelessWidget {
                                 TextSpan(
                                   text: ' offer for entire menu',
                                   style: TextStyle(
-                                    fontSize: 15,
+                                    fontSize: 15.sp,
                                     fontWeight: FontWeight.w500,
                                     color: appTextColor5,
                                   ),
@@ -73,22 +74,22 @@ class ProcessingBox extends StatelessWidget {
                           ),
                         ],
                       ),
-                      SizedBox(height: 10),
+                      SizedBox(height: 10.h),
                       Row(
                         children: [
                           Icon(
                             Icons.calendar_month_rounded,
                             color: appTextColor5,
-                            size: 18,
+                            size: 18.w,
                           ),
-                          SizedBox(width: 5),
+                          SizedBox(width: 5.w),
                           RichText(
                             text: TextSpan(
                               children: [
                                 TextSpan(
                                   text: 'April 12',
                                   style: TextStyle(
-                                    fontSize: 15,
+                                    fontSize: 15.sp,
                                     fontWeight: FontWeight.w700,
                                     color: appTextColor5,
                                   ),
@@ -96,7 +97,7 @@ class ProcessingBox extends StatelessWidget {
                                 TextSpan(
                                   text: ' - 2:30 pm',
                                   style: TextStyle(
-                                    fontSize: 15,
+                                    fontSize: 15.sp,
                                     fontWeight: FontWeight.w500,
                                     color: appTextColor5,
                                   ),
@@ -106,18 +107,18 @@ class ProcessingBox extends StatelessWidget {
                           ),
                         ],
                       ),
-                      SizedBox(height: 10),
+                      SizedBox(height: 10.h),
                       Row(
                         children: [
-                          Icon(Icons.groups, color: appTextColor5, size: 18),
-                          SizedBox(width: 5),
+                          Icon(Icons.groups, color: appTextColor5, size: 18.w),
+                          SizedBox(width: 5.w),
                           RichText(
                             text: TextSpan(
                               children: [
                                 TextSpan(
                                   text: '2',
                                   style: TextStyle(
-                                    fontSize: 15,
+                                    fontSize: 15.sp,
                                     fontWeight: FontWeight.w700,
                                     color: appTextColor5,
                                   ),
@@ -125,7 +126,7 @@ class ProcessingBox extends StatelessWidget {
                                 TextSpan(
                                   text: ' Person',
                                   style: TextStyle(
-                                    fontSize: 15,
+                                    fontSize: 15.sp,
                                     fontWeight: FontWeight.w500,
                                     color: appTextColor5,
                                   ),
@@ -146,7 +147,7 @@ class ProcessingBox extends StatelessWidget {
                         fontWeight: FontWeight.w600,
                         color: appTextColor3,
                       ),
-                      SizedBox(height: 5),
+                      SizedBox(height: 5.h),
                       AppText(
                         text: "12:30pm",
                         size: 10,
@@ -158,7 +159,7 @@ class ProcessingBox extends StatelessWidget {
                 ],
               ),
 
-              const SizedBox(height: 15),
+               SizedBox(height: 15.h),
               SizedBox(
                 width: double.infinity,
                 child: Row(
@@ -169,9 +170,9 @@ class ProcessingBox extends StatelessWidget {
                         Icon(
                           Icons.person_search_sharp,
                           color: appLinkColor,
-                          size: 18,
+                          size: 18.w,
                         ),
-                        const SizedBox(width: 5),
+                         SizedBox(width: 5.w),
                         AppText(
                           text: "Details",
                           size: 12,
@@ -182,32 +183,32 @@ class ProcessingBox extends StatelessWidget {
                     ),
 
                     SizedBox(
-                      width: 180,
+                      width: 180.w,
                       child: Row(
                         children: [
                           Expanded(
                             child: SizedBox(
-                              height: 35,
+                              height: 35.h,
                               child: AppButton(
                                 text: "Decline",
                                 onPressed: deleteOnPressed ?? (){},
                                 bgColor1: Colors.red,
                                 bgColor2: Colors.red,
-                                size: 12,
+                                size: 13,
                                 borderRadius: 5,
                               ),
                             ),
                           ),
-                          const SizedBox(width: 10),
+                           SizedBox(width: 10.w),
                           Expanded(
                             child: SizedBox(
-                              height: 35,
+                              height: 35.h,
                               child: AppButton(
                                 text: "Accept",
                                 onPressed: () {},
                                 bgColor1: Colors.green,
                                 bgColor2: Colors.green,
-                                size: 12,
+                                size: 13,
                                 borderRadius: 5,
                               ),
                             ),

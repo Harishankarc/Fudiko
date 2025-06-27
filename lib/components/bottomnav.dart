@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class Bottomnav extends StatelessWidget {
   final int selectedIndex;
@@ -21,7 +22,7 @@ class Bottomnav extends StatelessWidget {
     ];
 
     return Container(
-      padding: const EdgeInsets.symmetric(vertical: 10),
+      padding:  EdgeInsets.symmetric(vertical: 10.h),
       decoration: BoxDecoration(
         color: Colors.white,
         boxShadow: [
@@ -45,7 +46,7 @@ class Bottomnav extends StatelessWidget {
                   children: [
                     Icon(
                       item['icon'] as IconData,
-                      size: 28,
+                      size: 28.w,
                       color: isSelected ? Colors.orange : Colors.grey[700],
                     ),
                     if ((item['badge'] as int) > 0)
@@ -58,16 +59,16 @@ class Bottomnav extends StatelessWidget {
                             color: Colors.red,
                             shape: BoxShape.circle,
                           ),
-                          constraints: const BoxConstraints(
-                            minWidth: 20,
-                            minHeight: 20,
+                          constraints:  BoxConstraints(
+                            minWidth: 20.w,
+                            minHeight: 20.h,
                           ),
                           child: Center(
                             child: Text(
                               '${item['badge']}',
-                              style: const TextStyle(
+                              style:  TextStyle(
                                 color: Colors.white,
-                                fontSize: 12,
+                                fontSize: 12.sp,
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
@@ -76,7 +77,7 @@ class Bottomnav extends StatelessWidget {
                       ),
                   ],
                 ),
-                const SizedBox(height: 4),
+                 SizedBox(height: 4.h),
                 Text(
                   item['label'] as String,
                   style: TextStyle(

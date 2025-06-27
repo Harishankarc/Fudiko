@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fudiko/components/appbutton.dart';
-import 'package:fudiko/components/appdropdown.dart';
-import 'package:fudiko/components/apptext.dart';
 import 'package:fudiko/components/apptextfeild.dart';
 import 'package:fudiko/components/descriptionBox.dart';
 import 'package:fudiko/screens/others/infoPage3.dart';
@@ -15,7 +14,7 @@ class InfoPage2 extends StatelessWidget {
     // double screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 30),
+        padding: EdgeInsets.symmetric(horizontal: 30.w),
         child: SizedBox(
           width: double.infinity,
           height: double.infinity,
@@ -31,14 +30,14 @@ class InfoPage2 extends StatelessWidget {
                 icon: Icons.list,
                 onChanged: (value) {},
               ),
-              SizedBox(height: 20),
+              SizedBox(height: 20.h),
               AppTextFeild(text: "Available dishes", icon: Icons.fastfood,iconColor: appTextColor,),
-              SizedBox(height: 20),
+              SizedBox(height: 20.h),
               AppTextFeild(text: "Address", icon: Icons.home,iconColor: appTextColor,),
-              SizedBox(height: 20),
+              SizedBox(height: 20.h),
               AppTextFeild(text: "Contact number", icon: Icons.phone,iconColor: appTextColor,),
 
-              SizedBox(height: 150),
+              SizedBox(height: 150.h),
               AppButton(text: 'Continue', onPressed: () {
                 Navigator.push(
                     context,

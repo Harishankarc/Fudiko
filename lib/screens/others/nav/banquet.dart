@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fudiko/components/allEnquiryBox.dart';
 import 'package:fudiko/components/appbutton.dart';
 import 'package:fudiko/components/appfilterdropdown.dart';
@@ -38,11 +39,11 @@ class _BanquetState extends State<Banquet> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: appSecondaryBackgroundColor,
-      
+
       body: Stack(
         children: [
           Padding(
-            padding: const EdgeInsets.only(top: 60),
+            padding:  EdgeInsets.only(top: 30.h),
             child: SingleChildScrollView(
               physics: BouncingScrollPhysics(
                 decelerationRate: ScrollDecelerationRate.normal,
@@ -50,7 +51,7 @@ class _BanquetState extends State<Banquet> {
               child: Column(
                 children: [
                   Padding(
-                    padding: const EdgeInsets.only(left: 30, right: 30),
+                    padding:  EdgeInsets.only(left: 20.w, right: 20.w),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       crossAxisAlignment: CrossAxisAlignment.center,
@@ -74,10 +75,10 @@ class _BanquetState extends State<Banquet> {
                               children: [
                                 Icon(
                                   Icons.location_on,
-                                  size: 15,
+                                  size: 15.w,
                                   color: appTextColor3,
                                 ),
-                                const SizedBox(width: 5),
+                                 SizedBox(width: 5.w),
                                 AppText(
                                   text: "Ulitsa Serpukhovskiy Val-14",
                                   size: 15,
@@ -90,56 +91,56 @@ class _BanquetState extends State<Banquet> {
                         ),
                         GestureDetector(
                           onTap: widget.onDrawerTap,
-                          child: Icon(Icons.menu, size: 30, color: appTextColor3)),
+                          child: Icon(Icons.menu, size: 30.w, color: appTextColor3)),
                       ],
                     ),
                   ),
 
-                  const SizedBox(height: 30),
+                   SizedBox(height: 30.h),
                   Padding(
-                    padding: const EdgeInsets.only(left: 30, right: 30),
+                    padding:  EdgeInsets.only(left: 20.w, right: 20.w),
                     child: Column(
                       children: [
                         Row(
                           children: [
                             buildStatusButton("All Enquiries"),
-                            const SizedBox(width: 10),
+                             SizedBox(width: 10.w),
                             buildStatusButton("Sent"),
                           ],
                         ),
-                        SizedBox(height: 10),
+                        SizedBox(height: 10.h),
                         Row(
                           children: [
                             buildStatusButton("Confirmed"),
-                            const SizedBox(width: 10),
+                             SizedBox(width: 10.w),
                             buildStatusButton("Completed"),
                           ],
                         ),
-                        SizedBox(height: 10),
+                        SizedBox(height: 10.h),
                         Row(
                           children: [
                             buildStatusButton("Saved"),
-                            const SizedBox(width: 10),
+                             SizedBox(width: 10.w),
                             buildStatusButton("Deleted"),
-                            const SizedBox(width: 10),
+                             SizedBox(width: 10.w),
                             Container(
-                              height: 35,
-                              width: 50,
+                              height: 35.h,
+                              width: 50.w,
                               decoration: BoxDecoration(
                                 color: Colors.white,
-                                borderRadius: BorderRadius.circular(10),
+                                borderRadius: BorderRadius.circular(10.r),
                                 boxShadow: [
                                   BoxShadow(
                                     color: Colors.grey.withOpacity(0.3),
                                     blurRadius: 6,
-                                    offset: const Offset(2, 2),
+                                    offset:  Offset(2, 2),
                                   ),
                                 ],
                               ),
                               child: Icon(
                                 Icons.search,
                                 color: appTextColor3,
-                                size: 20,
+                                size: 20.w,
                               ),
                             ),
                           ],
@@ -147,15 +148,15 @@ class _BanquetState extends State<Banquet> {
                       ],
                     ),
                   ),
-                  SizedBox(height: 30),
+                  SizedBox(height: 30.h),
                   if (selectedStatus == "All Enquiries")
                     Padding(
-                      padding: const EdgeInsets.only(left: 30, right: 30),
+                      padding:  EdgeInsets.only(left: 20.w, right: 20.w),
                       child: SizedBox(
                         child: ListView.builder(
                           itemCount: 1,
                           shrinkWrap: true,
-                          physics: const NeverScrollableScrollPhysics(),
+                          physics:  NeverScrollableScrollPhysics(),
                           itemBuilder: (context, index) {
                             return AllEnquiryBox(
                               onPressed: () {
@@ -170,12 +171,12 @@ class _BanquetState extends State<Banquet> {
                     )
                   else if (selectedStatus == "Sent")
                     Padding(
-                      padding: const EdgeInsets.only(left: 30, right: 30),
+                      padding:  EdgeInsets.only(left: 20.w, right: 20.w),
                       child: SizedBox(
                         child: ListView.builder(
                           itemCount: sentBoxDemo.length,
                           shrinkWrap: true,
-                          physics: const NeverScrollableScrollPhysics(),
+                          physics:  NeverScrollableScrollPhysics(),
                           itemBuilder: (context, index) {
                             final sample = sentBoxDemo[index];
                             return SentBox(
@@ -189,12 +190,12 @@ class _BanquetState extends State<Banquet> {
                     )
                   else if (selectedStatus == "Confirmed")
                     Padding(
-                      padding: const EdgeInsets.only(left: 30, right: 30),
+                      padding:  EdgeInsets.only(left: 20.w, right: 20.w),
                       child: SizedBox(
                         child: ListView.builder(
                           itemCount: 1,
                           shrinkWrap: true,
-                          physics: const NeverScrollableScrollPhysics(),
+                          physics:  NeverScrollableScrollPhysics(),
                           itemBuilder: (context, index) {
                             return BanquetConfirmedBox();
                           },
@@ -203,7 +204,7 @@ class _BanquetState extends State<Banquet> {
                     )
                   else if (selectedStatus == "Completed")
                     Padding(
-                      padding: const EdgeInsets.only(left: 30, right: 30),
+                      padding:  EdgeInsets.only(left: 20.w, right: 20.w),
                       child: Column(
                         children: [
                           Row(
@@ -219,12 +220,12 @@ class _BanquetState extends State<Banquet> {
                               ),
                             ],
                           ),
-                          SizedBox(height: 20),
+                          SizedBox(height: 20.h),
                           SizedBox(
                             child: ListView.builder(
                               itemCount: 3,
                               shrinkWrap: true,
-                              physics: const NeverScrollableScrollPhysics(),
+                              physics:  NeverScrollableScrollPhysics(),
                               itemBuilder: (context, index) {
                                 return BanquetCompletedBox();
                               },
@@ -235,12 +236,12 @@ class _BanquetState extends State<Banquet> {
                     )
                   else if (selectedStatus == "Saved")
                     Padding(
-                      padding: const EdgeInsets.only(left: 30, right: 30),
+                      padding:  EdgeInsets.only(left: 20.w, right: 20.w),
                       child: SizedBox(
                         child: ListView.builder(
                           itemCount: 1,
                           shrinkWrap: true,
-                          physics: const NeverScrollableScrollPhysics(),
+                          physics:  NeverScrollableScrollPhysics(),
                           itemBuilder: (context, index) {
                             return BanquetSavedBox();
                           },
@@ -249,12 +250,12 @@ class _BanquetState extends State<Banquet> {
                     )
                   else
                     Padding(
-                      padding: const EdgeInsets.only(left: 30, right: 30),
+                      padding:  EdgeInsets.only(left: 20.w, right: 20.w),
                       child: SizedBox(
                         child: ListView.builder(
                           itemCount: 1,
                           shrinkWrap: true,
-                          physics: const NeverScrollableScrollPhysics(),
+                          physics:  NeverScrollableScrollPhysics(),
                           itemBuilder: (context, index) {
                             return BanquetDeleteBox();
                           },
@@ -272,27 +273,26 @@ class _BanquetState extends State<Banquet> {
                   height: MediaQuery.of(context).size.height,
                   width: MediaQuery.of(context).size.width,
                   decoration: BoxDecoration(color: Colors.black.withOpacity(0.5)),
-                  child: Text("HIi"),
                 ),
                 Center(
                   child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 30),
+                    padding:  EdgeInsets.symmetric(horizontal: 20.w),
                     child: Container(
-                      height: 150,
+                      height: 150.h,
                       width: double.infinity,
-                      padding: const EdgeInsets.only(
-                        left: 40,
-                        right: 40,
-                        top: 30,
+                      padding:  EdgeInsets.only(
+                        left: 40.w,
+                        right: 40.w,
+                        top: 30.h,
                       ),
                       decoration: BoxDecoration(
                         color: Colors.white,
-                        borderRadius: BorderRadius.circular(15),
+                        borderRadius: BorderRadius.circular(15.r),
                         boxShadow: [
                           BoxShadow(
                             color: Colors.black.withOpacity(0.1),
                             blurRadius: 10,
-                            offset: const Offset(0, 4),
+                            offset:  Offset(0, 4),
                           ),
                         ],
                       ),
@@ -304,13 +304,14 @@ class _BanquetState extends State<Banquet> {
                             fontWeight: FontWeight.w500,
                             color: Colors.black,
                             isCentered: true,
+                            lineSpacing: 1.2,
                           ),
-                          SizedBox(height: 20),
+                          SizedBox(height: 20.h),
                           Row(
                             children: [
                               Expanded(
                                 child: SizedBox(
-                                  height: 35,
+                                  height: 35.h,
                                   child: AppButton(
                                     text: "Yes",
                                     onPressed: () {
@@ -318,21 +319,21 @@ class _BanquetState extends State<Banquet> {
                                         isDeleteClicked = !isDeleteClicked;
                                       });
                                     },
-                                    size: 15,
+                                    size: 12,
                                     borderRadius: 5,
                                     bgColor1: Colors.green,
                                     bgColor2: Colors.green,
                                   ),
                                 ),
                               ),
-                              const SizedBox(width: 20),
+                               SizedBox(width: 20.w),
                               Expanded(
                                 child: SizedBox(
-                                  height: 35,
+                                  height: 35.h,
                                   child: AppButton(
                                     text: "No",
                                     onPressed: () {},
-                                    size: 15,
+                                    size: 12,
                                     borderRadius: 5,
                                     bgColor1: Colors.red,
                                     bgColor2: Colors.red,
@@ -364,16 +365,16 @@ class _BanquetState extends State<Banquet> {
           });
         },
         child: Container(
-          height: 35,
+          height: 35.h,
           alignment: Alignment.center,
           decoration: BoxDecoration(
             gradient: isSelected
-                ? const LinearGradient(
+                ?  LinearGradient(
                     colors: [Color(0xFFEC7B2D), Color(0xFFF7A440)],
                   )
                 : null,
             color: isSelected ? null : Colors.white,
-            borderRadius: BorderRadius.circular(10),
+            borderRadius: BorderRadius.circular(10.r),
             boxShadow: [
               BoxShadow(
                 color: Colors.black.withOpacity(0.2),
@@ -385,7 +386,7 @@ class _BanquetState extends State<Banquet> {
           child: Text(
             text,
             style: TextStyle(
-              fontSize: 13,
+              fontSize: 13.sp,
               fontWeight: FontWeight.w500,
               color: isSelected ? Colors.white : appTextColor3,
             ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fudiko/components/appbutton.dart';
 import 'package:fudiko/components/apptext.dart';
 import 'package:fudiko/screens/others/individualMenuUpload.dart';
@@ -33,12 +34,12 @@ class _RestaurantProfileState extends State<RestaurantProfile> {
                     children: [
                       Image.asset(
                         'assets/images/banner1.png',
-                        height: 200,
+                        height: 200.h,
                         width: double.infinity,
                         fit: BoxFit.cover,
                       ),
                       Padding(
-                        padding: const EdgeInsets.all(40),
+                        padding:  EdgeInsets.all(30.w),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
@@ -58,10 +59,10 @@ class _RestaurantProfileState extends State<RestaurantProfile> {
                               children: [
                                 Icon(
                                   Icons.location_on,
-                                  size: 15,
+                                  size: 15.w,
                                   color: Colors.white,
                                 ),
-                                SizedBox(width: 5),
+                                SizedBox(width: 5.w),
                                 AppText(
                                   text: "Ulitsa Serpukhovskiy Val-14",
                                   size: 15,
@@ -70,14 +71,14 @@ class _RestaurantProfileState extends State<RestaurantProfile> {
                                 ),
                               ],
                             ),
-                            SizedBox(height: 20),
+                            SizedBox(height: 20.h),
                             Wrap(
                               children: List.generate(
                                 5,
                                 (index) => Icon(
                                   Icons.star,
                                   color: index < 3 ? Colors.white : Colors.grey,
-                                  size: 20,
+                                  size: 20.w,
                                 ),
                               ),
                             ),
@@ -85,8 +86,8 @@ class _RestaurantProfileState extends State<RestaurantProfile> {
                         ),
                       ),
                       Positioned(
-                        bottom: -screenWidth / 6,
-                        right: 20,
+                        bottom: -screenWidth / 6.w,
+                        right: 20.w,
                         child: GestureDetector(
                           onTap: (){
                             setState(() {
@@ -94,20 +95,18 @@ class _RestaurantProfileState extends State<RestaurantProfile> {
                             });
                           },
                           child: Container(
-                            width: 150,
-                            height: 150,
                             decoration: BoxDecoration(
                               shape: BoxShape.circle,
                               color: Colors.white,
                               boxShadow: [
                                 BoxShadow(
                                   color: Colors.black.withOpacity(0.1),
-                                  blurRadius: 10,
-                                  offset: Offset(0, 4),
+                                  blurRadius: 10.r,
+                                  offset: Offset(0, 4.r),
                                 ),
                               ],
                             ),
-                            padding: EdgeInsets.all(4),
+                            padding: EdgeInsets.all(4.r),
                             child: ClipOval(
                               child: Image.asset(
                                 'assets/images/restaurantLogo.png',
@@ -119,19 +118,19 @@ class _RestaurantProfileState extends State<RestaurantProfile> {
                       ),
                     ],
                   ),
-                  SizedBox(height: 20),
+                  SizedBox(height: 20.h),
                   Padding(
-                    padding: const EdgeInsets.only(left: 40),
+                    padding:  EdgeInsets.only(left: 40.w),
                     child: Image.asset(
                       'assets/images/verification.png',
-                      height: 40,
-                      width: 40,
-                      fit: BoxFit.cover,
+                      height: 40.h,
+                      width: 40.w,
+                      fit: BoxFit.contain,
                     ),
                   ),
-                  SizedBox(height: 40),
+                  SizedBox(height: 40.h),
                   SizedBox(
-                    height: 150,
+                    height: 150.h,
                     child: ListView.builder(
                       itemCount: 6,
                       shrinkWrap: true,
@@ -140,27 +139,30 @@ class _RestaurantProfileState extends State<RestaurantProfile> {
                       itemBuilder: (context, index) {
                         if (index < 5) {
                           return Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 5),
-                            child: Image.asset(
-                              'assets/images/restaurantPic.png',
-                              height: 150,
-                              width: 100,
-                              fit: BoxFit.cover,
-                            ),
+                            padding:  EdgeInsets.symmetric(horizontal: 5.w),
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(10.r),
+                              child: Image.asset(
+                                'assets/images/restaurantPic.png',
+                                height: 150.h,
+                                width: 100.w,
+                                fit: BoxFit.cover,
+                              ),
+                            )
                           );
                         } else {
                           return Container(
-                            height: 150,
-                            width: 100,
+                            height: 150.h,
+                            width: 100.w,
                             decoration: BoxDecoration(
                               color: Colors.grey,
-                              borderRadius: BorderRadius.circular(10),
+                              borderRadius: BorderRadius.circular(10.r),
                             ),
                             child: Center(
                               child: Icon(
                                 Icons.add,
                                 color: Colors.white,
-                                size: 50,
+                                size: 50.w,
                               ),
                             ),
                           );
@@ -169,18 +171,18 @@ class _RestaurantProfileState extends State<RestaurantProfile> {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.all(20),
+                    padding:  EdgeInsets.all(20.w),
                     child: Container(
-                      padding: const EdgeInsets.all(16),
+                      padding:  EdgeInsets.all(16.w),
                       width: double.infinity,
                       decoration: BoxDecoration(
                         color: Colors.white,
-                        borderRadius: BorderRadius.circular(20),
+                        borderRadius: BorderRadius.circular(20.r),
                         boxShadow: [
                           BoxShadow(
                             color: Colors.black.withOpacity(0.3),
-                            blurRadius: 10,
-                            offset: Offset(0, 4),
+                            blurRadius: 10.r,
+                            offset: Offset(0, 4.r),
                           ),
                         ],
                       ),
@@ -196,7 +198,7 @@ class _RestaurantProfileState extends State<RestaurantProfile> {
                                 },
                                 child: Icon(
                                   Icons.edit_square,
-                                  size: 20,
+                                  size: 20.w,
                                   color: Colors.black54,
                                 ),
                               ),
@@ -204,7 +206,7 @@ class _RestaurantProfileState extends State<RestaurantProfile> {
                           ),
                           Row(
                             children: [
-                              Icon(Icons.list, size: 20, color: appTextColor3),
+                              Icon(Icons.list, size: 20.w, color: appTextColor3),
                               Expanded(
                                 child: Container(
                                   height: 0.5,
@@ -214,11 +216,11 @@ class _RestaurantProfileState extends State<RestaurantProfile> {
                             ],
                           ),
                           Padding(
-                            padding: const EdgeInsets.only(
-                              top: 5,
-                              right: 10,
-                              left: 30,
-                              bottom: 5,
+                            padding:  EdgeInsets.only(
+                              top: 5.h,
+                              right: 10.w,
+                              left: 30.w,
+                              bottom: 5.h,
                             ),
                             child: AppText(
                               text:
@@ -226,13 +228,14 @@ class _RestaurantProfileState extends State<RestaurantProfile> {
                               size: 12,
                               fontWeight: FontWeight.w400,
                               color: appTextColor2,
+                              lineSpacing: 1.2,
                             ),
                           ),
                           Row(
                             children: [
                               Icon(
                                 Icons.fastfood,
-                                size: 20,
+                                size: 20.w,
                                 color: appTextColor3,
                               ),
                               Expanded(
@@ -244,11 +247,11 @@ class _RestaurantProfileState extends State<RestaurantProfile> {
                             ],
                           ),
                           Padding(
-                            padding: const EdgeInsets.only(
-                              top: 5,
-                              right: 10,
-                              left: 30,
-                              bottom: 5,
+                            padding:  EdgeInsets.only(
+                              top: 5.h,
+                              right: 10.w,
+                              left: 30.w,
+                              bottom: 5.h,
                             ),
                             child: AppText(
                               text: "Chineese, Arabic, Indian,",
@@ -259,7 +262,7 @@ class _RestaurantProfileState extends State<RestaurantProfile> {
                           ),
                           Row(
                             children: [
-                              Icon(Icons.home, size: 20, color: appTextColor3),
+                              Icon(Icons.home, size: 20.w, color: appTextColor3),
                               Expanded(
                                 child: Container(
                                   height: 0.5,
@@ -269,11 +272,11 @@ class _RestaurantProfileState extends State<RestaurantProfile> {
                             ],
                           ),
                           Padding(
-                            padding: const EdgeInsets.only(
-                              top: 5,
-                              right: 10,
-                              left: 30,
-                              bottom: 5,
+                            padding:  EdgeInsets.only(
+                              top: 5.h,
+                              right: 10.w,
+                              left: 30.w,
+                              bottom: 5.h,
                             ),
                             child: AppText(
                               text:
@@ -281,11 +284,12 @@ class _RestaurantProfileState extends State<RestaurantProfile> {
                               size: 12,
                               fontWeight: FontWeight.w400,
                               color: appTextColor2,
+                              lineSpacing: 1.2,
                             ),
                           ),
                           Row(
                             children: [
-                              Icon(Icons.phone, size: 20, color: appTextColor3),
+                              Icon(Icons.phone, size: 20.w, color: appTextColor3),
                               Expanded(
                                 child: Container(
                                   height: 0.5,
@@ -295,11 +299,11 @@ class _RestaurantProfileState extends State<RestaurantProfile> {
                             ],
                           ),
                           Padding(
-                            padding: const EdgeInsets.only(
-                              top: 5,
-                              right: 10,
-                              left: 30,
-                              bottom: 5,
+                            padding:  EdgeInsets.only(
+                              top: 5.h,
+                              right: 10.w,
+                              left: 30.w,
+                              bottom: 5.h,
                             ),
                             child: AppText(
                               text:
@@ -307,6 +311,7 @@ class _RestaurantProfileState extends State<RestaurantProfile> {
                               size: 12,
                               fontWeight: FontWeight.w400,
                               color: appTextColor2,
+                              lineSpacing: 1.2,
                             ),
                           ),
                         ],
@@ -314,9 +319,9 @@ class _RestaurantProfileState extends State<RestaurantProfile> {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 20,
-                      vertical: 20,
+                    padding:  EdgeInsets.symmetric(
+                      horizontal: 20.w,
+                      vertical: 20.h,
                     ),
                     child: AppButton(
                       text: "Add Menu",
@@ -340,40 +345,36 @@ class _RestaurantProfileState extends State<RestaurantProfile> {
                   ),
                   Center(
                     child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 30),
+                      padding:  EdgeInsets.symmetric(horizontal: 30.w),
                       child: Container(
-                        height: 300,
                         width: double.infinity,
-                        padding: const EdgeInsets.only(
-                          left: 40,
-                          right: 40,
-                          top: 30,
-                        ),
+                        padding: EdgeInsets.all(20),
                         decoration: BoxDecoration(
                           color: Colors.white,
-                          borderRadius: BorderRadius.circular(15),
+                          borderRadius: BorderRadius.circular(15.r),
                           boxShadow: [
                             BoxShadow(
                               color: Colors.black.withOpacity(0.1),
-                              blurRadius: 10,
-                              offset: Offset(0, 4),
+                              blurRadius: 10.r,
+                              offset: Offset(0, 4.r),
                             ),
                           ],
                         ),
                         child: Column(
+                          mainAxisSize: MainAxisSize.min,
                           children: [
                             Container(
                               width: double.infinity,
-                              height: 150,
-                              padding: const EdgeInsets.all(10),
-                              decoration: BoxDecoration(
-                                color: menuUploadBoxColor,
-                                borderRadius: BorderRadius.circular(15),
+                                height: 150.h,
+                                padding:  EdgeInsets.all(10.w),
+                                decoration: BoxDecoration(
+                                  color: menuUploadBoxColor,
+                                  borderRadius: BorderRadius.circular(15.r),
                                 boxShadow: [
                                   BoxShadow(
                                     color: Colors.black.withOpacity(0.1),
-                                    blurRadius: 10,
-                                    offset: Offset(0, 4),
+                                    blurRadius: 10.r,
+                                    offset: Offset(0, 4.r),
                                   ),
                                 ],
                               ),
@@ -384,9 +385,9 @@ class _RestaurantProfileState extends State<RestaurantProfile> {
                                   Icon(
                                     Icons.file_upload_outlined,
                                     color: Colors.black,
-                                    size: 30,
+                                    size: 30.w,
                                   ),
-                                  SizedBox(height: 10),
+                                  SizedBox(height: 10.h),
                                   AppText(
                                     text: "Click here to choose",
                                     size: 15,
@@ -402,9 +403,10 @@ class _RestaurantProfileState extends State<RestaurantProfile> {
                                 ],
                               ),
                             ),
-                            SizedBox(height: 20),
+                            SizedBox(height: 20.h),
                             SizedBox(
-                              width: 150,
+                              width: 150.w,
+                              height: 50.h,
                               child: AppButton(
                                 text: 'Upload',
                                 size: 15,
@@ -415,8 +417,11 @@ class _RestaurantProfileState extends State<RestaurantProfile> {
                                 },
                                 bgColor1: Colors.green,
                                 bgColor2: Colors.green,
+                                borderRadius: 10.r,
                               ),
                             ),
+                            SizedBox(height: 20.h),
+
                           ],
                         ),
                       ),
@@ -434,24 +439,24 @@ class _RestaurantProfileState extends State<RestaurantProfile> {
                   ),
                   Center(
                     child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 30),
+                      padding:  EdgeInsets.symmetric(horizontal: 30.w),
                       child: Container(
-                        height: 250,
+                        height: 250.h,
                         width: double.infinity,
-                        padding: const EdgeInsets.only(
-                          left: 40,
-                          right: 40,
-                          top: 30,
-                          bottom: 30,
+                        padding:  EdgeInsets.only(
+                          left: 40.w,
+                          right: 40.w,
+                          top: 30.h,
+                          bottom: 30.h,
                         ),
                         decoration: BoxDecoration(
                           color: Colors.white,
-                          borderRadius: BorderRadius.circular(15),
+                          borderRadius: BorderRadius.circular(15.r),
                           boxShadow: [
                             BoxShadow(
                               color: Colors.black.withOpacity(0.1),
-                              blurRadius: 10,
-                              offset: Offset(0, 4),
+                              blurRadius: 10.r,
+                              offset: Offset(0, 4.r),
                             ),
                           ],
                         ),
@@ -479,7 +484,7 @@ class _RestaurantProfileState extends State<RestaurantProfile> {
                                     },
                                   ),
                                 ),
-                                SizedBox(height: 20,),
+                                SizedBox(height: 20.h,),
                                 SizedBox(
                                   width: double.infinity,
                                   child: AppButton(

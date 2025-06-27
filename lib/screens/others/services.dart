@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fudiko/components/appswitch.dart';
 import 'package:fudiko/components/apptext.dart';
 import 'package:fudiko/utils/constants.dart';
@@ -34,7 +35,7 @@ class _ServicePageState extends State<ServicePage> {
         child: SingleChildScrollView(
           physics: const BouncingScrollPhysics(),
           child: Padding(
-            padding: const EdgeInsets.symmetric( vertical: 20),
+            padding:  EdgeInsets.symmetric( vertical: 20.h),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -43,29 +44,29 @@ class _ServicePageState extends State<ServicePage> {
                     Navigator.pop(context);
                   },
                   child: Padding(
-                    padding: const EdgeInsets.only(left: 30.0),
+                    padding:  EdgeInsets.only(left: 20.w),
                     child: Icon(
                       Icons.arrow_back_ios_outlined,
-                      size: 30,
+                      size: 30.w,
                       color: Colors.deepOrange,
                     ),
                   ),
                 ),
-                const SizedBox(height: 60),
+                 SizedBox(height: 60.h),
                 Divider(color: Colors.deepOrange.shade100, thickness: 1),
 
                 _buildServiceRow("Takeaway service"),
                 Divider(color: Colors.deepOrange.shade100, thickness: 1),
 
                 _buildServiceRow("Delivery service"),
-                const SizedBox(height: 16),
+                 SizedBox(height: 16.h),
 
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  padding:  EdgeInsets.symmetric(horizontal: 20.w),
                   child: _buildDistanceGrid(),
                 ),
 
-                const SizedBox(height: 20),
+                 SizedBox(height: 20.h),
                 Divider(color: Colors.deepOrange.shade100, thickness: 1),
               ],
             ),
@@ -77,7 +78,7 @@ class _ServicePageState extends State<ServicePage> {
 
   Widget _buildServiceRow(String label) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 30),
+      padding:  EdgeInsets.symmetric(vertical: 10.h, horizontal: 20.w),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -106,13 +107,13 @@ class _ServicePageState extends State<ServicePage> {
             Expanded(
               child: Column(children: left.map(_buildCheckboxRow).toList()),
             ),
-            const SizedBox(width: 20),
+             SizedBox(width: 20.w),
             Expanded(
               child: Column(children: right.map(_buildCheckboxRow).toList()),
             ),
           ],
         ),
-        const SizedBox(height: 12),
+         SizedBox(height: 12.h),
         Center(child: _buildCheckboxRow(last)),
       ],
     );
@@ -122,18 +123,18 @@ class _ServicePageState extends State<ServicePage> {
     final isChecked = selectedDistances.contains(text);
 
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 8),
+      padding:  EdgeInsets.symmetric(vertical: 8.h),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(text, style: TextStyle(fontSize: 15, color: appTextColor2)),
-          const SizedBox(width: 20),
+           SizedBox(width: 20.w),
           Container(
-            width: 24,
-            height: 24,
+            width: 24.w,
+            height: 24.h,
             decoration: BoxDecoration(
               color: isChecked ? appToggleColor : Colors.transparent,
-              borderRadius: BorderRadius.circular(6),
+              borderRadius: BorderRadius.circular(6.r),
               border: Border.all(color: appToggleColor, width: 2),
             ),
             child: Checkbox(
@@ -148,7 +149,7 @@ class _ServicePageState extends State<ServicePage> {
                 });
               },
               shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(4),
+                borderRadius: BorderRadius.circular(4.r),
               ),
               side: BorderSide.none,
               checkColor: Colors.white,

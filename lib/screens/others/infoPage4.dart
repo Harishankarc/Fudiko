@@ -2,6 +2,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fudiko/components/apptext.dart';
 import 'package:fudiko/screens/others/nav/mainnav.dart';
 import 'package:fudiko/utils/constants.dart';
@@ -36,16 +37,16 @@ class _InfoPage4State extends State<InfoPage4> {
           children: [
             Image.asset(
               'assets/images/checked.png',
-              width: 100,
-              height: 100,
+              width: 100.w,
+              height: 100.h,
               fit: BoxFit.contain,
             ),
             SizedBox(height: 20),
             AppText(text: "You're all set!", size: 25, fontWeight: FontWeight.bold),
             SizedBox(height: 10),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 40),
-              child: AppText(text: "Your details are under review.Once approved, you’ll be able to manage your orders, reach more food lovers.You're all set!", size: 15, fontWeight: FontWeight.w400,color: appTextColor2,isCentered: true,),
+              padding:  EdgeInsets.symmetric(horizontal: 40.w),
+              child: AppText(text: "Your details are under review.Once approved, you’ll be able to manage your orders, reach more food lovers.You're all set!", size: 15, fontWeight: FontWeight.w400,color: appTextColor2,isCentered: true,lineSpacing: 1.5,),
             ),
           ],
         ),

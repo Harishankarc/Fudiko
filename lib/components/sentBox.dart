@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fudiko/components/appbutton.dart';
 import 'package:fudiko/components/apptext.dart';
 import 'package:fudiko/utils/constants.dart';
@@ -19,11 +20,11 @@ class SentBox extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(bottom: 20),
+      padding:  EdgeInsets.only(bottom: 20.h),
       child: Container(
         decoration: BoxDecoration(
           color: Colors.white,
-          borderRadius: BorderRadius.circular(20),
+          borderRadius: BorderRadius.circular(20.r),
           boxShadow: [
             BoxShadow(
               color: Colors.black.withOpacity(0.2),
@@ -33,7 +34,7 @@ class SentBox extends StatelessWidget {
           ],
         ),
         child: Padding(
-          padding: const EdgeInsets.all(20),
+          padding:  EdgeInsets.all(20.w),
           child: Column(
             children: [
               Row(
@@ -50,63 +51,102 @@ class SentBox extends StatelessWidget {
                           fontWeight: FontWeight.bold,
                           color: Colors.red,
                         ),
-                        const SizedBox(height: 10),
+                         SizedBox(height: 10.h),
                         moneyDetails != null ?  Row(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Icon(Icons.wallet, color: appTextColor5, size: 18),
-                            const SizedBox(width: 5),
+                            Icon(Icons.wallet, color: appTextColor5, size: 18.w),
+                            SizedBox(width: 5.w),
                             Flexible(
-                              child: Text(
-                                moneyDetails ?? "",
-                                style: TextStyle(
-                                  fontSize: 15,
-                                  fontWeight: FontWeight.w400,
-                                  color: appTextColor5,
+                              child: RichText(
+                                text: TextSpan(
+                                  children: [
+                                    TextSpan(
+                                      text: moneyDetails?.split(' ').first ?? '',
+                                      style: TextStyle(
+                                        fontSize: 15.sp,
+                                        fontWeight: FontWeight.w900,
+                                        color: appTextColor5,
+                                      ),
+                                    ),
+                                    TextSpan(
+                                      text: moneyDetails?.substring(moneyDetails?.split(' ').first.length ?? 0) ?? '',
+                                      style: TextStyle(
+                                        fontSize: 15.sp,
+                                        fontWeight: FontWeight.w500,
+                                        color: appTextColor5,
+                                      ),
+                                    ),
+                                  ],
                                 ),
-                                softWrap: true,
                               ),
                             ),
                           ],
                         ) : SizedBox.shrink(),
-                        const SizedBox(height: 10),
+                         SizedBox(height: 10.h),
                         discountDetails != null ? Row(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Icon(
                               Icons.local_offer_sharp,
                               color: appTextColor5,
-                              size: 18,
+                              size: 18.w,
                             ),
-                            const SizedBox(width: 5),
+                            SizedBox(width: 5.w),
                             Flexible(
-                              child: Text(
-                                discountDetails ?? "",
-                                style: TextStyle(
-                                  fontSize: 15,
-                                  fontWeight: FontWeight.w400,
-                                  color: appTextColor5,
+                              child: RichText(
+                                text: TextSpan(
+                                  children: [
+                                    TextSpan(
+                                      text: discountDetails?.split(' ').first ?? '',
+                                      style: TextStyle(
+                                        fontSize: 15.sp,
+                                        fontWeight: FontWeight.w700,
+                                        color: appTextColor5,
+                                      ),
+                                    ),
+                                    TextSpan(
+                                      text: discountDetails?.substring(discountDetails?.split(' ').first.length ?? 0) ?? '',
+                                      style: TextStyle(
+                                        fontSize: 15.sp,
+                                        fontWeight: FontWeight.w500,
+                                        color: appTextColor5,
+                                      ),
+                                    ),
+                                  ],
                                 ),
-                                softWrap: true,
                               ),
                             ),
                           ],
                         ) : SizedBox.shrink(),
-                        const SizedBox(height: 10),
+                         SizedBox(height: 10.h),
                         messageDetails != null ? Row(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Icon(Icons.message, color: appTextColor5, size: 18),
-                            const SizedBox(width: 5),
+                            Icon(Icons.message, color: appTextColor5, size: 18.w),
+                            SizedBox(width: 5.w),
                             Expanded(
-                              child: Text(
-                                messageDetails ?? "",
-                                style: TextStyle(
-                                  fontSize: 15,
-                                  fontWeight: FontWeight.w400,
-                                  color: appTextColor5,
+                              child: RichText(
+                                text: TextSpan(
+                                  children: [
+                                    TextSpan(
+                                      text: messageDetails?.split(' ').first ?? '',
+                                      style: TextStyle(
+                                        fontSize: 15.sp,
+                                        fontWeight: FontWeight.w700,
+                                        color: appTextColor5,
+                                      ),
+                                    ),
+                                    TextSpan(
+                                      text: messageDetails?.substring(messageDetails?.split(' ').first.length ?? 0) ?? '',
+                                      style: TextStyle(
+                                        fontSize: 15.sp,
+                                        fontWeight: FontWeight.w500,
+                                        color: appTextColor5,
+                                      ),
+                                    ),
+                                  ],
                                 ),
-                                softWrap: true,
                               ),
                             ),
                           ],
@@ -114,7 +154,7 @@ class SentBox extends StatelessWidget {
                       ],
                     ),
                   ),
-                  const SizedBox(width: 10),
+                   SizedBox(width: 10.w),
                   Expanded(
                     flex: 1,
                     child: Column(
@@ -126,7 +166,7 @@ class SentBox extends StatelessWidget {
                           fontWeight: FontWeight.w600,
                           color: appTextColor3,
                         ),
-                        const SizedBox(height: 5),
+                         SizedBox(height: 5.h),
                         AppText(
                           text: "12:30pm",
                           size: 10,
@@ -138,13 +178,13 @@ class SentBox extends StatelessWidget {
                   ),
                 ],
               ),
-              const SizedBox(height: 25),
+               SizedBox(height: 25.h),
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   SizedBox(
-                    height: 35,
-                    width: 100,
+                    height: 35.h,
+                    width: 100.w,
                     child: AppButton(
                       text: "Delete",
                       onPressed: () {},

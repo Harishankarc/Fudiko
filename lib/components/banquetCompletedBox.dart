@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fudiko/components/appbutton.dart';
 import 'package:fudiko/components/apptext.dart';
 import 'package:fudiko/utils/constants.dart';
@@ -9,11 +10,11 @@ class BanquetCompletedBox extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(bottom: 20),
+      padding:  EdgeInsets.only(bottom: 20.h),
       child: Container(
         decoration: BoxDecoration(
           color: Colors.white,
-          borderRadius: BorderRadius.circular(20),
+          borderRadius: BorderRadius.circular(20.r),
           boxShadow: [
             BoxShadow(
               color: Colors.black.withOpacity(0.2),
@@ -23,7 +24,7 @@ class BanquetCompletedBox extends StatelessWidget {
           ],
         ),
         child: Padding(
-          padding: const EdgeInsets.all(20),
+          padding:  EdgeInsets.all(20.w),
           child: Column(
             children: [
               Row(
@@ -39,7 +40,7 @@ class BanquetCompletedBox extends StatelessWidget {
                         fontWeight: FontWeight.bold,
                         color: appTextColor5,
                       ),
-                      SizedBox(height: 10),
+                      SizedBox(height: 10.h),
                       Row(
                         children: [
                           Icon(
@@ -47,14 +48,14 @@ class BanquetCompletedBox extends StatelessWidget {
                             color: appTextColor5,
                             size: 18,
                           ),
-                          SizedBox(width: 5),
+                          SizedBox(width: 5.w),
                           RichText(
                             text: TextSpan(
                               children: [
                                 TextSpan(
                                   text: '1200',
                                   style: TextStyle(
-                                    fontSize: 15,
+                                    fontSize: 15.sp,
                                     fontWeight: FontWeight.w900,
                                     color: appTextColor5,
                                   ),
@@ -62,7 +63,7 @@ class BanquetCompletedBox extends StatelessWidget {
                                 TextSpan(
                                   text: ' Per Person',
                                   style: TextStyle(
-                                    fontSize: 15,
+                                    fontSize: 15.sp,
                                     fontWeight: FontWeight.w500,
                                     color: appTextColor5,
                                   ),
@@ -72,22 +73,22 @@ class BanquetCompletedBox extends StatelessWidget {
                           ),
                         ],
                       ),
-                      SizedBox(height: 10),
+                      SizedBox(height: 10.h),
                       Row(
                         children: [
                           Icon(
                             Icons.local_offer,
                             color: appTextColor5,
-                            size: 18,
+                            size: 18.w,
                           ),
-                          SizedBox(width: 5),
+                          SizedBox(width: 5.w),
                           RichText(
                             text: TextSpan(
                               children: [
                                 TextSpan(
                                   text: '5%',
                                   style: TextStyle(
-                                    fontSize: 15,
+                                    fontSize: 15.sp,
                                     fontWeight: FontWeight.w700,
                                     color: appTextColor5,
                                   ),
@@ -95,28 +96,28 @@ class BanquetCompletedBox extends StatelessWidget {
                                 TextSpan(
                                   text: ' on extra drinks',
                                   style: TextStyle(
-                                    fontSize: 15,
-                                    fontWeight: FontWeight.w500,
-                                    color: appTextColor5,
+                                      fontSize: 15.sp,
+                                      fontWeight: FontWeight.w500,
+                                      color: appTextColor5,
+                                    ),
                                   ),
-                                ),
-                              ],
-                            ),
+                                ],
+                              ),
                           ),
                         ],
                       ),
-                      SizedBox(height: 10),
+                      SizedBox(height: 10.h),
                       Row(
                         children: [
-                          Icon(Icons.groups, color: appTextColor5, size: 18),
-                          SizedBox(width: 5),
+                          Icon(Icons.groups, color: appTextColor5, size: 18.w),
+                          SizedBox(width: 5.w),
                           RichText(
                             text: TextSpan(
                               children: [
                                 TextSpan(
                                   text: '20',
                                   style: TextStyle(
-                                    fontSize: 15,
+                                    fontSize: 15.sp,
                                     fontWeight: FontWeight.w700,
                                     color: appTextColor5,
                                   ),
@@ -124,7 +125,7 @@ class BanquetCompletedBox extends StatelessWidget {
                                 TextSpan(
                                   text: ' Person',
                                   style: TextStyle(
-                                    fontSize: 15,
+                                    fontSize: 15.sp,
                                     fontWeight: FontWeight.w500,
                                     color: appTextColor5,
                                   ),

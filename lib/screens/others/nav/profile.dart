@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fudiko/components/apptext.dart';
 import 'package:fudiko/components/donutPercentage.dart';
 import 'package:fudiko/utils/constants.dart';
@@ -9,7 +10,7 @@ class Profile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    double screenWidth = MediaQuery.of(context).size.width;
+    double screenWidth = MediaQuery.of(context).size.width.w;
 
     return Scaffold(
       body: SingleChildScrollView(
@@ -20,28 +21,20 @@ class Profile extends StatelessWidget {
               children: [
                 Image.asset(
                   'assets/images/banner1.png',
-                  height: 150,
+                  height: 150.h,
                   width: double.infinity,
                   fit: BoxFit.cover,
                 ),
-                Positioned(
-                  bottom: -screenWidth / 6,
-                  left: screenWidth/2 - 75,
-                  child: Container(
-                    width: 150,
-                    height: 150,
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: Colors.white, // White background
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.black.withOpacity(0.1),
-                          blurRadius: 10,
-                          offset: Offset(0, 4),
-                        ),
-                      ],
-                    ),
-                    padding: EdgeInsets.all(4), // Optional: spacing around image
+              ],
+            ),
+            SizedBox(height: 0),
+            Center(
+              child: Stack(
+                clipBehavior: Clip.none,
+                children: [
+                  SizedBox(
+                    width: 150.w,
+                    height: 150.w,
                     child: ClipOval(
                       child: Image.asset(
                         'assets/images/avatar2.png',
@@ -49,75 +42,88 @@ class Profile extends StatelessWidget {
                       ),
                     ),
                   ),
-                ),
-              ],
-            ),
-            SizedBox(height: 80,),
-            AppText(text: "John Abraham", size: 20, fontWeight: FontWeight.w600, color: Colors.black, isCentered: true,),
-            SizedBox(height: 10,),
-            SizedBox(
-              width: double.infinity,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Image.asset(
-                    'assets/images/badge.png',
-                    height: 30,
-                    width: 30,
-                    fit: BoxFit.contain,
-                  )
+                  Positioned(
+                    bottom: 8.w,
+                    right: 8.w,
+                    child: Container(
+                      width: 40.w,
+                      height: 40.w,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: Colors.white,
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black.withOpacity(0.1),
+                            blurRadius: 4.r,
+                            offset: Offset(0, 2.r),
+                          ),
+                        ],
+                      ),
+                      child: Padding(
+                        padding: EdgeInsets.all(4.w),
+                        child: Image.asset(
+                          'assets/images/badge.png',
+                          fit: BoxFit.contain,
+                        ),
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ),
-
-            SizedBox(
-              width: 250,
-              height: 250,
-              child: DonutChart(percentage: 72/100),
+            SizedBox(height: 20.h),
+            AppText(text: "John Abraham", size: 20, fontWeight: FontWeight.w600, color: Colors.black, isCentered: true,),
+            SizedBox(height: 10.h,),
+            Center(
+              child: SizedBox(
+                width: 250.w,
+                height: 250.h,
+                child: DonutChart(percentage: 72/100),
+              ),
             ),
             AppText(text: "Reliability Rating", size: 15, fontWeight: FontWeight.w600, color: appTextColor3, isCentered: true,),
             Padding(
-              padding: const EdgeInsets.only(
-                left: 20,
-                right: 20,
-                top: 20,
-                bottom: 20,
+              padding:  EdgeInsets.only(
+                left: 20.w,
+                right: 20.w,
+                top: 20.h,
+                bottom: 20.h,
               ),
               child: Container(
-                padding: const EdgeInsets.all(30),
+                padding:  EdgeInsets.all(30.w),
                 width: double.infinity,
                 decoration: BoxDecoration(
                   color: Colors.white,
-                  borderRadius: BorderRadius.circular(20),
+                  borderRadius: BorderRadius.circular(20.r),
                   boxShadow: [
                     BoxShadow(
                       color: Colors.black.withOpacity(0.3),
-                      blurRadius: 10,
-                      offset: const Offset(0, 4),
+                      blurRadius: 10.r,
+                      offset:  Offset(0, 4.r),
                     ),
                   ],
                 ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    SizedBox(height: 10,),
+                    SizedBox(height: 10.h,),
                     Row(
                       children: [
                         AppText(text: "Place", size: 12, fontWeight: FontWeight.w600, color: appTextColor2,),
-                        SizedBox(width:15,),
+                        SizedBox(width:15.w,),
                         Expanded(
                           child: Container(height: 0.5, color: appTextColor3),
                         ),
                       ],
                     ),
-                    SizedBox(height: 5),
+                    SizedBox(height: 5.h),
 
                     Padding(
-                      padding: const EdgeInsets.only(
-                        top: 5,
-                        right: 10,
-                        left: 30,
-                        bottom: 5,
+                      padding:  EdgeInsets.only(
+                        top: 5.h,
+                        right: 10.w,
+                        left: 30.w,
+                        bottom: 5.h,
                       ),
                       child: AppText(
                         text: "Tulskaya",
@@ -126,7 +132,7 @@ class Profile extends StatelessWidget {
                         color: appTextColor2,
                       ),
                     ),
-                    SizedBox(height: 5),
+                    SizedBox(height: 5.h  ),
 
                     Row(
                       children: [
@@ -136,20 +142,20 @@ class Profile extends StatelessWidget {
                           fontWeight: FontWeight.w600,
                           color: appTextColor2,
                         ),
-                        SizedBox(width: 15),
+                        SizedBox(width: 15.w),
                         Expanded(
                           child: Container(height: 0.5, color: appTextColor3),
                         ),
                       ],
                     ),
-                    SizedBox(height: 5),
+                    SizedBox(height: 5.h),
 
                     Padding(
-                      padding: const EdgeInsets.only(
-                        top: 5,
-                        right: 10,
-                        left: 30,
-                        bottom: 5,
+                      padding:  EdgeInsets.only(
+                        top: 5.h,
+                        right: 10.w,
+                        left: 30.w,
+                        bottom: 5.h,
                       ),
                       child: AppText(
                         text: "abcdefg@gmai.com",
@@ -158,7 +164,7 @@ class Profile extends StatelessWidget {
                         color: appTextColor2,
                       ),
                     ),
-                    SizedBox(height: 5),
+                    SizedBox(height: 5.h),
 
                     Row(
                       children: [
@@ -168,20 +174,20 @@ class Profile extends StatelessWidget {
                           fontWeight: FontWeight.w600,
                           color: appTextColor2,
                         ),
-                        SizedBox(width: 15),
+                        SizedBox(width: 15.w),
                         Expanded(
                           child: Container(height: 0.5, color: appTextColor3),
                         ),
                       ],
                     ),
-                    SizedBox(height: 5),
+                    SizedBox(height: 5.h),
 
                     Padding(
-                      padding: const EdgeInsets.only(
-                        top: 5,
-                        right: 10,
-                        left: 30,
-                        bottom: 5,
+                      padding:  EdgeInsets.only(
+                        top: 5.h,
+                        right: 10.w,
+                        left: 30.w,
+                        bottom: 5.h,
                       ),
                       child: AppText(
                         text:
@@ -191,7 +197,7 @@ class Profile extends StatelessWidget {
                         color: appTextColor2,
                       ),
                     ),
-                    SizedBox(height: 5),
+                    SizedBox(height: 5.h),
 
                   ],
                 ),

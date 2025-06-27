@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fudiko/components/appbutton.dart';
 import 'package:fudiko/components/apptext.dart';
 import 'package:fudiko/utils/constants.dart';
@@ -20,28 +21,28 @@ class _NumberOfPeopleModalState extends State<NumberOfPeopleModal> {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+        padding:  EdgeInsets.symmetric(horizontal: 20.w, vertical: 16.h),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
             Container(
-              width: 40,
-              height: 5,
+              width: 40.w,
+              height: 5.h,
               decoration: BoxDecoration(
                 color: Colors.grey[300],
-                borderRadius: BorderRadius.circular(10),
+                borderRadius: BorderRadius.circular(10.r),
               ),
             ),
             const SizedBox(height: 16),
 
             Container(
               width: double.infinity,
-              height: MediaQuery.of(context).size.height / 3.5,
+              height: MediaQuery.of(context).size.height / 3.5.h,
               decoration: BoxDecoration(
                 color: Colors.white,
-                borderRadius: BorderRadius.circular(20),
+                borderRadius: BorderRadius.circular(20.r),
               ),
-              padding: const EdgeInsets.all(16),
+              padding:  EdgeInsets.all(16.r),
               child: !isBookingClicked ? _addNoOfPeople() : _confirmBox(),
             ),
           ],
@@ -60,9 +61,9 @@ class _NumberOfPeopleModalState extends State<NumberOfPeopleModal> {
             onTap: (){
               Navigator.pop(context);
             },
-            child: Icon(Icons.close, color: appTextColor, size: 25))],
+            child: Icon(Icons.close, color: appTextColor, size: 25.w))],
         ),
-        SizedBox(height: 10),
+        SizedBox(height: 10.h),
         SizedBox(
           width: double.infinity,
           child: Column(
@@ -70,13 +71,13 @@ class _NumberOfPeopleModalState extends State<NumberOfPeopleModal> {
             children: [
               Image.asset(
                 'assets/images/checked.png',
-                height: 60,
-                width: 60,
+                height: 60.h,
+                width: 60.w,
                 fit: BoxFit.contain,
               ),
-              SizedBox(height: 20),
+              SizedBox(height: 20.h),
               AppText(text: "Booking Successful!", size: 30, fontWeight: FontWeight.w500,color: appTextColor3,),
-              SizedBox(height: 20),
+              SizedBox(height: 20.h),
               AppText(text: "You have received a coupon for a 40% discount on the entire menu for today at 2:00 PM", size: 15, fontWeight: FontWeight.w400,color: appTextColor2,isCentered: true,lineSpacing: 1.5,),
 
             ],
@@ -96,9 +97,9 @@ class _NumberOfPeopleModalState extends State<NumberOfPeopleModal> {
             onTap: (){
               Navigator.pop(context);
             },
-            child: Icon(Icons.close, color: appTextColor, size: 25))],
+            child: Icon(Icons.close, color: appTextColor, size: 25.w))],
         ),
-        SizedBox(height: 10),
+        SizedBox(height: 10.h),
         SizedBox(
           width: double.infinity,
           child: Column(
@@ -111,18 +112,18 @@ class _NumberOfPeopleModalState extends State<NumberOfPeopleModal> {
                 color: appTextColor2,
                 isCentered: true,
               ),
-              SizedBox(height: 20),
+              SizedBox(height: 20.h),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Container(
-                    width: 100,
-                    height: 100,
+                    width: 100.w,
+                    height: 100.h,
                     decoration: BoxDecoration(
                       color: Colors.grey[200],
                       borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(20),
-                        bottomLeft: Radius.circular(20),
+                        topLeft: Radius.circular(20.r),
+                        bottomLeft: Radius.circular(20.r),
                       ),
                       boxShadow: [
                         BoxShadow(
@@ -143,8 +144,8 @@ class _NumberOfPeopleModalState extends State<NumberOfPeopleModal> {
                     ),
                   ),
                   Container(
-                    width: 150,
-                    height: 100,
+                    width: 150.w,
+                    height: 100.h,
                     decoration: BoxDecoration(
                       color: Colors.white,
                       boxShadow: [
@@ -166,13 +167,13 @@ class _NumberOfPeopleModalState extends State<NumberOfPeopleModal> {
                     ),
                   ),
                   Container(
-                    width: 100,
-                    height: 100,
+                    width: 100.w,
+                    height: 100.h,
                     decoration: BoxDecoration(
                       color: Colors.grey[200],
                       borderRadius: BorderRadius.only(
-                        topRight: Radius.circular(20),
-                        bottomRight: Radius.circular(20),
+                        topRight: Radius.circular(20.r),
+                        bottomRight: Radius.circular(20.r),
                       ),
                       boxShadow: [
                         BoxShadow(
@@ -196,7 +197,7 @@ class _NumberOfPeopleModalState extends State<NumberOfPeopleModal> {
               ),
               SizedBox(height: 20),
               SizedBox(
-                width: 200,
+                width: 200.w,
                 child: AppButton(
                   text: "Book",
                   onPressed: () {

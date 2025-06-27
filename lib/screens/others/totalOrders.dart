@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fudiko/components/appfilterdropdown.dart';
 import 'package:fudiko/components/apptext.dart';
 import 'package:fudiko/components/orderDonut.dart';
@@ -11,7 +12,7 @@ class TotalOrders extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 30),
+        padding:  EdgeInsets.symmetric(horizontal: 30.w),
         child: SingleChildScrollView(
           child: Column(
             children: [
@@ -20,13 +21,13 @@ class TotalOrders extends StatelessWidget {
                   Navigator.pop(context);
                 },
                 child: Padding(
-                  padding: const EdgeInsets.only(top: 40),
+                  padding:  EdgeInsets.only(top: 40.h),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       Icon(
                         Icons.arrow_back_ios_outlined,
-                        size: 30,
+                        size: 30.w,
                         color: appTextColor3,
                       ),
                     ],
@@ -34,7 +35,7 @@ class TotalOrders extends StatelessWidget {
                 ),
               ),
               ConstrainedBox(
-                constraints: BoxConstraints(maxWidth: 200),
+                constraints: BoxConstraints(maxWidth: 200.w),
                 child: AppFilterDropDown(
                   hint: "This Month",
                   icon: Icons.tune,
@@ -43,14 +44,14 @@ class TotalOrders extends StatelessWidget {
                       backgroundColor: Colors.white,
                       context: context,
                       isScrollControlled: true,
-                      shape: const RoundedRectangleBorder(
+                      shape:  RoundedRectangleBorder(
                         borderRadius: BorderRadius.vertical(
-                          top: Radius.circular(25),
+                          top: Radius.circular(25.r),
                         ),
                       ),
                       builder: (context) {
                         return Padding(
-                          padding: const EdgeInsets.all(30),
+                          padding:  EdgeInsets.all(30.w),
                           child: Column(
                             mainAxisSize: MainAxisSize.min,
                             children: [
@@ -67,38 +68,38 @@ class TotalOrders extends StatelessWidget {
                                 width: MediaQuery.of(context).size.width,
                                 decoration: BoxDecoration(
                                   color: Colors.white,
-                                  borderRadius: BorderRadius.circular(20),
+                                  borderRadius: BorderRadius.circular(20.r),
                                 ),
-                                padding: const EdgeInsets.all(16),
+                                padding:  EdgeInsets.all(16.w),
                                 child: Column(
                                   children: [
                                     Divider(color: Colors.grey[200]),
-                                    const SizedBox(height: 10),
+                                     SizedBox(height: 10.h),
                                     AppText(
                                       text: "item1",
                                       size: 15,
                                       fontWeight: FontWeight.w500,
                                       color: Colors.black,
                                     ),
-                                    const SizedBox(height: 10),
+                                     SizedBox(height: 10.h),
                                     Divider(color: Colors.grey[200]),
-                                    const SizedBox(height: 10),
+                                     SizedBox(height: 10.h),
                                     AppText(
                                       text: "item2",
                                       size: 15,
                                       fontWeight: FontWeight.w500,
                                       color: Colors.black,
                                     ),
-                                    const SizedBox(height: 10),
+                                     SizedBox(height: 10.h),
                                     Divider(color: Colors.grey[200]),
-                                    const SizedBox(height: 10),
+                                     SizedBox(height: 10.h),
                                     AppText(
                                       text: "item3",
                                       size: 15,
                                       fontWeight: FontWeight.w500,
                                       color: Colors.black,
                                     ),
-                                    const SizedBox(height: 10),
+                                     SizedBox(height: 10.h),
                                     Divider(color: Colors.grey[200]),
                                   ],
                                 ),
@@ -111,14 +112,14 @@ class TotalOrders extends StatelessWidget {
                   },
                 ),
               ),
-              SizedBox(height: 45),
+              SizedBox(height: 45.h),
               AppText(
                 text: "TOTAL ORDERS",
                 size: 20,
                 fontWeight: FontWeight.w600,
                 isCentered: true,
               ),
-              SizedBox(height: 10),
+              SizedBox(height: 10.h),
               AppText(
                 text: "387",
                 size: 40,
@@ -126,13 +127,13 @@ class TotalOrders extends StatelessWidget {
                 isCentered: true,
                 color: appTextColor3,
               ),
-              SizedBox(height: 40),
+              SizedBox(height: 40.h),
               SizedBox(
                 width: 200,
                 height: 200,
                 child: OrderDonut(done: 291, total: 387),
               ),
-              SizedBox(height: 10),
+              SizedBox(height: 10.h),
               AppText(
                 text: "Completed",
                 size: 20,
@@ -140,10 +141,10 @@ class TotalOrders extends StatelessWidget {
                 isCentered: true,
                 color: appTextColor2,
               ),
-              SizedBox(height: 40),
+              SizedBox(height: 40.h),
               SizedBox(
-                width: 200,
-                height: 200,
+                width: 200.w,
+                height: 200.h,
                 child: OrderDonut(
                   done: 87,
                   total: 387,
@@ -151,7 +152,7 @@ class TotalOrders extends StatelessWidget {
                   secondaryColor: Colors.greenAccent,
                 ),
               ),
-              SizedBox(height: 10),
+              SizedBox(height: 10.h),
               AppText(
                 text: "Cancelled",
                 size: 20,

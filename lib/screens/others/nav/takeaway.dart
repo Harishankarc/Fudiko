@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fudiko/components/apptext.dart';
 import 'package:fudiko/utils/constants.dart';
 
@@ -19,13 +20,13 @@ class _TakeAwayState extends State<TakeAway> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: appSecondaryBackgroundColor,
-      
+
       body: Stack(
         children: [
           Padding(
-            padding: const EdgeInsets.only(top: 60),
+            padding:  EdgeInsets.only(top: 30.h),
             child: SingleChildScrollView(
-              physics: const BouncingScrollPhysics(),
+              physics:  BouncingScrollPhysics(),
               child: Stack(
                 children: [
                   Positioned(
@@ -33,21 +34,21 @@ class _TakeAwayState extends State<TakeAway> {
                     top: 0,
                     child: Container(
                       height: double.infinity,
-                      width: MediaQuery.of(context).size.width,
+                      width: MediaQuery.of(context).size.width.w,
                       decoration: BoxDecoration(
                         color: appSecondaryBackgroundColor,
-                        borderRadius: const BorderRadius.only(
-                          topLeft: Radius.circular(40),
-                          topRight: Radius.circular(40),
+                        borderRadius:  BorderRadius.only(
+                          topLeft: Radius.circular(40.r),
+                          topRight: Radius.circular(40.r),
                         ),
                       ),
-                      child: const Center(child: Text("Helloo")),
+                      child:  Center(child: Text("Helloo")),
                     ),
                   ),
                   Column(
                     children: [
                       Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 30),
+                        padding:  EdgeInsets.symmetric(horizontal: 20.w),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           crossAxisAlignment: CrossAxisAlignment.center,
@@ -71,10 +72,10 @@ class _TakeAwayState extends State<TakeAway> {
                                   children: [
                                     Icon(
                                       Icons.location_on,
-                                      size: 15,
+                                      size: 15.w,
                                       color: appTextColor3,
                                     ),
-                                    const SizedBox(width: 5),
+                                     SizedBox(width: 5.w),
                                     AppText(
                                       text: "Ulitsa Serpukhovskiy Val-14",
                                       size: 15,
@@ -89,50 +90,50 @@ class _TakeAwayState extends State<TakeAway> {
                               onTap: widget.onDrawerTap,
                               child: Icon(
                                 Icons.menu,
-                                size: 30,
+                                size: 30.w,
                                 color: appTextColor3,
                               ),
                             ),
                           ],
                         ),
                       ),
-                      const SizedBox(height: 30),
+                       SizedBox(height: 30.h),
                       Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 30),
+                        padding:  EdgeInsets.symmetric(horizontal: 20.w),
                         child: Column(
                           children: [
                             Row(
                               children: [
                                 buildStatusButton("All Orders"),
-                                const SizedBox(width: 10),
+                                 SizedBox(width: 10.w),
                                 buildStatusButton("Confirmed"),
                               ],
                             ),
-                            const SizedBox(height: 10),
+                             SizedBox(height: 10.h),
                             Row(
                               children: [
                                 buildStatusButton("Completed"),
-                                const SizedBox(width: 10),
+                                 SizedBox(width: 10.w),
                                 buildStatusButton("Rejected"),
-                                const SizedBox(width: 10),
+                                 SizedBox(width: 10.w),
                                 Container(
-                                  height: 35,
-                                  width: 50,
+                                  height: 35.h,
+                                  width: 50.w,
                                   decoration: BoxDecoration(
                                     color: Colors.white,
-                                    borderRadius: BorderRadius.circular(10),
+                                    borderRadius: BorderRadius.circular(10.r),
                                     boxShadow: [
                                       BoxShadow(
                                         color: Colors.grey.withOpacity(0.3),
-                                        blurRadius: 6,
-                                        offset: const Offset(2, 2),
+                                        blurRadius: 6.r,
+                                        offset:  Offset(2.r, 2.r),
                                       ),
                                     ],
                                   ),
                                   child: Icon(
                                     Icons.search,
                                     color: appTextColor3,
-                                    size: 20,
+                                    size: 20.w,
                                   ),
                                 ),
                               ],
@@ -142,7 +143,7 @@ class _TakeAwayState extends State<TakeAway> {
                       ),
                       if (hasData)
                         Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 30),
+                          padding:  EdgeInsets.symmetric(horizontal: 20.w),
                           child: Column(
                             children: [
                               // Your orders here
@@ -156,7 +157,7 @@ class _TakeAwayState extends State<TakeAway> {
             ),
           ),
 
-          if (!hasData) const Center(child: Text("No orders yet")),
+          if (!hasData)  Center(child: Text("No orders yet")),
 
 
         ],
@@ -175,28 +176,28 @@ class _TakeAwayState extends State<TakeAway> {
           });
         },
         child: Container(
-          height: 35,
+          height: 35.h,
           alignment: Alignment.center,
           decoration: BoxDecoration(
             gradient: isSelected
-                ? const LinearGradient(
+                ?  LinearGradient(
                     colors: [Color(0xFFEC7B2D), Color(0xFFF7A440)],
                   )
                 : null,
             color: isSelected ? null : Colors.white,
-            borderRadius: BorderRadius.circular(10),
+            borderRadius: BorderRadius.circular(10.r),
             boxShadow: [
               BoxShadow(
                 color: Colors.black.withOpacity(0.2),
-                blurRadius: 6,
-                offset: const Offset(2, 2),
+                blurRadius: 6.r,
+                offset:  Offset(2.r, 2.r),
               ),
             ],
           ),
           child: Text(
             text,
             style: TextStyle(
-              fontSize: 13,
+              fontSize: 13.sp,
               fontWeight: FontWeight.w500,
               color: isSelected ? Colors.white : appTextColor3,
             ),

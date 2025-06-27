@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fudiko/components/apptext.dart';
 import 'package:fudiko/utils/constants.dart';
 
@@ -26,7 +27,7 @@ class _LanguagesState extends State<Languages> {
         decoration: BoxDecoration(
           color: isSelected ? appLangBg : Colors.transparent,
         ),
-        padding: const EdgeInsets.symmetric(vertical: 20),
+        padding:  EdgeInsets.symmetric(vertical: 20.h),
         child: Center(
           child: AppText(
             text: language,
@@ -49,7 +50,7 @@ class _LanguagesState extends State<Languages> {
               Navigator.pop(context);
             },
             child: Padding(
-              padding: const EdgeInsets.only(top: 40, left: 30),
+              padding:  EdgeInsets.only(top: 40.h, left: 30.w),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
@@ -63,7 +64,7 @@ class _LanguagesState extends State<Languages> {
             ),
           ),
 
-          const SizedBox(height: 60),
+           SizedBox(height: 60.h),
 
           const Divider(thickness: 1, color: Colors.grey,height: 1,),
           _buildLanguageTile("English"),

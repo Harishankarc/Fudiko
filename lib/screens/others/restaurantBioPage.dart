@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fudiko/components/appbutton.dart';
 import 'package:fudiko/components/apptextfeild.dart';
 import 'package:fudiko/components/descriptionBox.dart';
@@ -18,28 +19,28 @@ class RestaurantBioEditPage extends StatelessWidget {
               children: [
                 Image.asset(
                   'assets/images/banner1.png',
-                  height: 150,
+                  height: 150.h,
                   width: double.infinity,
                   fit: BoxFit.cover,
                 ),
                 Padding(
-                  padding: const EdgeInsets.all(30),
+                  padding:  EdgeInsets.all(30.w),
                   child: GestureDetector(
                     onTap: (){
                       Navigator.pop(context);
                     },
                     child: Icon(
                       Icons.arrow_back_ios_outlined,
-                      size: 30,
+                      size: 30.w,
                       color: Colors.white,
                     ),
                   ),
                 ),
               ],
             ),
-            SizedBox(height: 100),
+            SizedBox(height: 50.h),
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 30),
+              padding: EdgeInsets.symmetric(horizontal: 30.w),
               child: SizedBox(
                 width: double.infinity,
                 child: Column(
@@ -53,28 +54,28 @@ class RestaurantBioEditPage extends StatelessWidget {
                       icon: Icons.list,
                       onChanged: (value) {},
                     ),
-                    SizedBox(height: 20),
+                    SizedBox(height: 20.h),
                     AppTextFeild(
                       text: "Available dishes",
                       icon: Icons.fastfood,
                       iconColor: appTextColor,
                     ),
-                    SizedBox(height: 20),
+                    SizedBox(height: 20.h),
                     AppTextFeild(
                       text: "Address",
                       icon: Icons.home,
                       iconColor: appTextColor,
                     ),
-                    SizedBox(height: 20),
+                    SizedBox(height: 20.h),
                     AppTextFeild(
                       text: "Contact number",
                       icon: Icons.phone,
                       iconColor: appTextColor,
                     ),
 
-                    SizedBox(height: 50),
+                    SizedBox(height: 50.h),
                     Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 100),
+                      padding:  EdgeInsets.symmetric(horizontal: 100.w),
                       child: AppButton(text: 'Update', onPressed: () {
                         Navigator.push(
                             context,
@@ -84,6 +85,7 @@ class RestaurantBioEditPage extends StatelessWidget {
                           );
                       }),
                     ),
+                    SizedBox(height: 50.h),
                   ],
                 ),
               ),

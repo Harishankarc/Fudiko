@@ -1,0 +1,415 @@
+{
+	"info": {
+		"_postman_id": "26f2b1e2-4390-4f0f-9626-470515e2638f",
+		"name": "Foodikko Partner",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "6302950"
+	},
+	"item": [
+		{
+			"name": "Registration",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "suhu3515@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "suhu3515",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "suhail@1123",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://fudikko.bitwissenddev.in/api/register",
+					"protocol": "https",
+					"host": [
+						"fudikko",
+						"bitwissenddev",
+						"in"
+					],
+					"path": [
+						"api",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "username",
+							"value": "suhu3515",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "suhail@1123",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://fudikko.bitwissenddev.in/api/login",
+					"protocol": "https",
+					"host": [
+						"fudikko",
+						"bitwissenddev",
+						"in"
+					],
+					"path": [
+						"api",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Partner Registration",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "1|mOBDdbRRsP4PqNpRKlAsr4CaTgoc6BMAox6RoJyDbb62a07a",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "https://fudikko.bitwissenddev.in/api/partner/complete-registration",
+					"protocol": "https",
+					"host": [
+						"fudikko",
+						"bitwissenddev",
+						"in"
+					],
+					"path": [
+						"api",
+						"partner",
+						"complete-registration"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Send Verification OTP",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "3|IwiJPrhi3o3hOWfdDq1enSaX3riRdVjtP7S0SaT9d04ceee0",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://fudikko.bitwissenddev.in/api/send-otp",
+					"protocol": "https",
+					"host": [
+						"fudikko",
+						"bitwissenddev",
+						"in"
+					],
+					"path": [
+						"api",
+						"send-otp"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Verify OTP",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "3|IwiJPrhi3o3hOWfdDq1enSaX3riRdVjtP7S0SaT9d04ceee0",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "otp",
+							"value": "1212",
+							"description": "Test OTP is always 1212",
+							"type": "text"
+						},
+						{
+							"key": "otp_id",
+							"value": "844c0e8f-55be-46e1-a9ce-17969a0a3b7c",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://fudikko.bitwissenddev.in/api/verify-otp",
+					"protocol": "https",
+					"host": [
+						"fudikko",
+						"bitwissenddev",
+						"in"
+					],
+					"path": [
+						"api",
+						"verify-otp"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Offer",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "3|IwiJPrhi3o3hOWfdDq1enSaX3riRdVjtP7S0SaT9d04ceee0",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "discount_percentage",
+							"value": "50",
+							"type": "text"
+						},
+						{
+							"key": "applicable_for",
+							"value": "entire_menu",
+							"type": "text"
+						},
+						{
+							"key": "dine_type",
+							"value": "Dine In,Take Away",
+							"description": "Pass values like this, (if there are more seperate by comma (,)",
+							"type": "text"
+						},
+						{
+							"key": "start_time",
+							"value": "10:00 AM",
+							"description": "Format hh:mm aa",
+							"type": "text"
+						},
+						{
+							"key": "end_time",
+							"value": "11:50 PM",
+							"description": "Format hh:mm aa",
+							"type": "text"
+						},
+						{
+							"key": "active_days",
+							"value": "Mon,Wed,Fri",
+							"description": "First 3 letters, multiple seperate by comma",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://fudikko.bitwissenddev.in/api/partner/offers/create",
+					"protocol": "https",
+					"host": [
+						"fudikko",
+						"bitwissenddev",
+						"in"
+					],
+					"path": [
+						"api",
+						"partner",
+						"offers",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List Offers",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "3|IwiJPrhi3o3hOWfdDq1enSaX3riRdVjtP7S0SaT9d04ceee0",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://fudikko.bitwissenddev.in/api/partner/offers/all",
+					"protocol": "https",
+					"host": [
+						"fudikko",
+						"bitwissenddev",
+						"in"
+					],
+					"path": [
+						"api",
+						"partner",
+						"offers",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Active Offers",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "3|IwiJPrhi3o3hOWfdDq1enSaX3riRdVjtP7S0SaT9d04ceee0",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://fudikko.bitwissenddev.in/api/partner/offers/active",
+					"protocol": "https",
+					"host": [
+						"fudikko",
+						"bitwissenddev",
+						"in"
+					],
+					"path": [
+						"api",
+						"partner",
+						"offers",
+						"active"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Inactive Offers",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "3|IwiJPrhi3o3hOWfdDq1enSaX3riRdVjtP7S0SaT9d04ceee0",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://fudikko.bitwissenddev.in/api/partner/offers/inactive",
+					"protocol": "https",
+					"host": [
+						"fudikko",
+						"bitwissenddev",
+						"in"
+					],
+					"path": [
+						"api",
+						"partner",
+						"offers",
+						"inactive"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Offer Status Change",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "3|IwiJPrhi3o3hOWfdDq1enSaX3riRdVjtP7S0SaT9d04ceee0",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "offer_id",
+							"value": "53d87267-09a8-4b9e-8461-8e25e17fd15b",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://fudikko.bitwissenddev.in/api/partner/offers/update-status",
+					"protocol": "https",
+					"host": [
+						"fudikko",
+						"bitwissenddev",
+						"in"
+					],
+					"path": [
+						"api",
+						"partner",
+						"offers",
+						"update-status"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

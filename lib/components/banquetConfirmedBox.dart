@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fudiko/components/appbutton.dart';
 import 'package:fudiko/components/apptext.dart';
 import 'package:fudiko/utils/constants.dart';
@@ -9,7 +10,7 @@ class BanquetConfirmedBox extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(bottom: 20),
+      padding:  EdgeInsets.only(bottom: 20.h),
       child: Container(
         width: double.infinity,
         decoration: BoxDecoration(
@@ -24,7 +25,7 @@ class BanquetConfirmedBox extends StatelessWidget {
           ],
         ),
         child: Padding(
-          padding: const EdgeInsets.all(20),
+          padding:  EdgeInsets.all(20.w),
           child: Column(
             children: [
               Row(
@@ -41,16 +42,16 @@ class BanquetConfirmedBox extends StatelessWidget {
                           fontWeight: FontWeight.bold,
                           color: appTextColor3,
                         ),
-                        const SizedBox(height: 10),
+                         SizedBox(height: 10),
                         Row(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Icon(
                               Icons.wallet_rounded,
                               color: appTextColor5,
-                              size: 18,
+                              size: 18.sp,
                             ),
-                            const SizedBox(width: 5),
+                             SizedBox(width: 5),
                             Flexible(
                               child: RichText(
                                 text: TextSpan(
@@ -58,7 +59,7 @@ class BanquetConfirmedBox extends StatelessWidget {
                                     TextSpan(
                                       text: '1200',
                                       style: TextStyle(
-                                        fontSize: 15,
+                                        fontSize: 15.sp,
                                         fontWeight: FontWeight.w900,
                                         color: appTextColor5,
                                       ),
@@ -66,7 +67,7 @@ class BanquetConfirmedBox extends StatelessWidget {
                                     TextSpan(
                                       text: ' Per Person',
                                       style: TextStyle(
-                                        fontSize: 15,
+                                        fontSize: 15.sp,
                                         fontWeight: FontWeight.w500,
                                         color: appTextColor5,
                                       ),
@@ -77,7 +78,7 @@ class BanquetConfirmedBox extends StatelessWidget {
                             ),
                           ],
                         ),
-                        const SizedBox(height: 10),
+                         SizedBox(height: 10),
                         Row(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
@@ -86,7 +87,7 @@ class BanquetConfirmedBox extends StatelessWidget {
                               color: appTextColor5,
                               size: 18,
                             ),
-                            const SizedBox(width: 5),
+                             SizedBox(width: 5),
                             Flexible(
                               child: RichText(
                                 text: TextSpan(
@@ -94,7 +95,7 @@ class BanquetConfirmedBox extends StatelessWidget {
                                     TextSpan(
                                       text: '5%',
                                       style: TextStyle(
-                                        fontSize: 15,
+                                        fontSize: 15.sp,
                                         fontWeight: FontWeight.w700,
                                         color: appTextColor5,
                                       ),
@@ -102,7 +103,7 @@ class BanquetConfirmedBox extends StatelessWidget {
                                     TextSpan(
                                       text: ' on extra drinks',
                                       style: TextStyle(
-                                        fontSize: 15,
+                                        fontSize: 15.sp,
                                         fontWeight: FontWeight.w500,
                                         color: appTextColor5,
                                       ),
@@ -113,12 +114,12 @@ class BanquetConfirmedBox extends StatelessWidget {
                             ),
                           ],
                         ),
-                        const SizedBox(height: 10),
+                         SizedBox(height: 10),
                         Row(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Icon(Icons.groups, color: appTextColor5, size: 18),
-                            const SizedBox(width: 5),
+                             SizedBox(width: 5),
                             Flexible(
                               child: RichText(
                                 text: TextSpan(
@@ -126,7 +127,7 @@ class BanquetConfirmedBox extends StatelessWidget {
                                     TextSpan(
                                       text: '20',
                                       style: TextStyle(
-                                        fontSize: 15,
+                                        fontSize: 15.sp,
                                         fontWeight: FontWeight.w700,
                                         color: appTextColor5,
                                       ),
@@ -134,7 +135,7 @@ class BanquetConfirmedBox extends StatelessWidget {
                                     TextSpan(
                                       text: ' Person',
                                       style: TextStyle(
-                                        fontSize: 15,
+                                        fontSize: 15.sp,
                                         fontWeight: FontWeight.w500,
                                         color: appTextColor5,
                                       ),
@@ -145,7 +146,7 @@ class BanquetConfirmedBox extends StatelessWidget {
                             ),
                           ],
                         ),
-                        const SizedBox(height: 10),
+                         SizedBox(height: 10),
                         Row(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
@@ -154,12 +155,12 @@ class BanquetConfirmedBox extends StatelessWidget {
                               color: appTextColor5,
                               size: 18,
                             ),
-                            const SizedBox(width: 5),
+                             SizedBox(width: 5),
                             Expanded(
                               child: Text(
                                 '-------------------------',
                                 style: TextStyle(
-                                  fontSize: 15,
+                                  fontSize: 15.sp,
                                   fontWeight: FontWeight.w400,
                                   color: appTextColor5,
                                 ),
@@ -171,20 +172,20 @@ class BanquetConfirmedBox extends StatelessWidget {
                       ],
                     ),
                   ),
-                  const SizedBox(width: 10),
+                   SizedBox(width: 10),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
                       AppText(
                         text: "Apr 11",
-                        size: 10,
+                        size: 10.sp,
                         fontWeight: FontWeight.w600,
                         color: appTextColor3,
                       ),
-                      const SizedBox(height: 5),
+                       SizedBox(height: 5),
                       AppText(
                         text: "12:30pm",
-                        size: 10,
+                        size: 10.sp,
                         fontWeight: FontWeight.w600,
                         color: appTextColor3,
                       ),
@@ -192,7 +193,7 @@ class BanquetConfirmedBox extends StatelessWidget {
                   ),
                 ],
               ),
-              const SizedBox(height: 15),
+               SizedBox(height: 15),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -203,7 +204,7 @@ class BanquetConfirmedBox extends StatelessWidget {
                       Icon(
                         Icons.person_search_sharp,
                         color: appLinkColor,
-                        size: 20,
+                        size: 20.sp,
                       ),
                       AppText(
                         text: "Details",
@@ -214,15 +215,15 @@ class BanquetConfirmedBox extends StatelessWidget {
                     ],
                   ),
                   SizedBox(
-                    width: 150,
-                    height: 35,
+                    width: 150.w,
+                    height: 35.h,
                     child: AppButton(
                       text: "Remind",
                       onPressed: () {},
                       bgColor1: Colors.blue,
                       bgColor2: Colors.blue,
-                      size: 12,
-                      borderRadius: 5,
+                      size: 12.sp,
+                      borderRadius: 5.r,
                     ),
                   ),
                 ],

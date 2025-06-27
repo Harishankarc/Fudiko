@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fudiko/components/appbutton.dart';
 import 'package:fudiko/components/appdropdown.dart';
 import 'package:fudiko/components/apptextfeild.dart';
@@ -9,8 +10,7 @@ class RestaurantProfileEdit extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
+    return Scaffold(
         body: SingleChildScrollView(
           child: Column(
             children: [
@@ -18,19 +18,19 @@ class RestaurantProfileEdit extends StatelessWidget {
                 children: [
                   Image.asset(
                     'assets/images/banner1.png',
-                    height: 150,
+                    height: 150.h,
                     width: double.infinity,
                     fit: BoxFit.cover,
                   ),
                   Padding(
-                    padding: const EdgeInsets.all(30),
+                    padding:  EdgeInsets.all(30.w),
                     child: GestureDetector(
                       onTap: (){
                         Navigator.pop(context);
                       },
                       child: Icon(
                         Icons.arrow_back_ios_outlined,
-                        size: 30,
+                        size: 30.w,
                         color: Colors.white,
                       ),
                     ),
@@ -41,43 +41,37 @@ class RestaurantProfileEdit extends StatelessWidget {
                 constraints: BoxConstraints(
                 ),
                 child: Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 30),
+                  padding: EdgeInsets.symmetric(horizontal: 30.w),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      SizedBox(height: 90), // Optional top spacing
+                      SizedBox(height: 50.h),
 
                       AppTextFeild(text: "Establishment Name"),
-                      SizedBox(height: 20),
+                      SizedBox(height: 20.h),
                       AppDropDown(
-                        items: [
-                          'Establishment type',
-                          'Type2',
-                          'Type3',
-                          'Type4',
-                        ],
                         hint: 'Establishment type',
                       ),
-                      SizedBox(height: 20),
+                      SizedBox(height: 20.h),
                       Container(
-                        height: 200,
+                        height: 200.h,
                         decoration: BoxDecoration(
                           color: Colors.white,
-                          borderRadius: BorderRadius.circular(20),
+                          borderRadius: BorderRadius.circular(20.r),
                           boxShadow: [
                             BoxShadow(
                               color: Colors.black.withOpacity(0.2),
-                              blurRadius: 10,
-                              offset: Offset(0, 4),
+                              blurRadius: 10.r,
+                              offset: Offset(0, 4.r),
                             ),
                           ],
                         ),
                       ),
-                      SizedBox(height: 20),
+                      SizedBox(height: 20.h),
                       AppTextFeild(text: "Location"),
-                      SizedBox(height: 40),
+                      SizedBox(height: 40.h),
                       Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 100),
+                        padding:  EdgeInsets.symmetric(horizontal: 100.w),
                         child: AppButton(text: 'Add', onPressed: () {
                           Navigator.push(
                               context,
@@ -87,7 +81,7 @@ class RestaurantProfileEdit extends StatelessWidget {
                             );
                         }),
                       ),
-                      SizedBox(height: 60), // Optional bottom spacing
+                      SizedBox(height: 60.h),
                     ],
                   ),
                 ),
@@ -95,7 +89,6 @@ class RestaurantProfileEdit extends StatelessWidget {
             ],
           ),
         ),
-      ),
     );
   }
 }

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fudiko/components/appswitch.dart';
 import 'package:fudiko/components/apptext.dart';
-import 'package:fudiko/utils/constants.dart';
 
 class MenuCard extends StatelessWidget {
   final String url;
@@ -11,16 +11,16 @@ class MenuCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.only(bottom: 20),
-      padding: const EdgeInsets.all(8),
+      margin:  EdgeInsets.only(bottom: 20.h),
+      padding:  EdgeInsets.all(8.w),
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(20.r),
         boxShadow: [
           BoxShadow(
             color: Colors.black.withOpacity(0.1),
-            blurRadius: 8,
-            offset: const Offset(0, 2),
+            blurRadius: 8.r,
+            offset:  Offset(0, 2.r),
           ),
         ],
       ),
@@ -28,48 +28,57 @@ class MenuCard extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           ClipRRect(
-            borderRadius: BorderRadius.circular(15),
-            child: Image.asset(url, height: 120, width: 120, fit: BoxFit.cover),
+            borderRadius: BorderRadius.circular(15.r),
+            child: Image.asset(url, height: 120.h, width: 120.w, fit: BoxFit.cover),
           ),
-          const SizedBox(width: 16),
+           SizedBox(width: 16.w),
           Expanded(
             child: Stack(
               children: [
-                Padding(
-                  padding: const EdgeInsets.only(top: 8.0),
-                  child: Column(
+
+                  Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const SizedBox(height: 20), // Spacing for switch
-                      AppText(
-                        text: "Chicken Biriyani",
-                        size: 18,
-                        fontWeight: FontWeight.w600,
-                        color: Colors.black,
+                      Row(
+                        children: [
+                          Flexible(
+                            flex: 3,
+                            child: AppText(
+                            text: "Chicken Biriyani",
+                            size: 15,
+                            fontWeight: FontWeight.w700,
+                            color: Colors.black,
+
+                          ),),
+                          Spacer(),
+                          Flexible(
+                            flex: 1,
+                            child: AppSwitch(
+                            initialValue: true,
+                            onToggle: (val) {},
+                          ),
+                        )
+                        ],
                       ),
-                      const SizedBox(height: 4),
+                       SizedBox(height: 4.h),
                       AppText(
                         text: "650 ₽",
                         size: 16,
                         fontWeight: FontWeight.w500,
                         color: Colors.black,
                       ),
-                      const SizedBox(height: 8),
+                       SizedBox(height: 8.h),
                       AppText(
                         text:
                             "A fragrant and flavorful rice dish cooked with tender meat, aromatic spices, and herbs, offering a rich and royal taste in every bite",
                         size: 10,
                         fontWeight: FontWeight.w400,
                         color: Colors.black87,
+                        lineSpacing: 1.2,
                       ),
                     ],
                   ),
-                ),
-                Positioned(
-                  top: 0,
-                  right: 0,
-                  child: AppSwitch(initialValue: true, onToggle: (val) {}),
-                ),
+
               ],
             ),
           ),

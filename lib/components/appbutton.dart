@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class AppButton extends StatelessWidget {
   final String text;
@@ -24,9 +25,9 @@ class AppButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      height: 60,
+      height: 60.h,
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(  borderRadius ?? 20),
+        borderRadius: BorderRadius.circular(  borderRadius?.sp ?? 20.r),
         gradient: bgColor1 == null && bgColor2 == null
             ? const LinearGradient(
                 colors: [Color(0xFFC95F05), Color(0xFFF97A0D)],
@@ -54,7 +55,7 @@ class AppButton extends StatelessWidget {
         style: TextButton.styleFrom(
           backgroundColor: Colors.transparent,
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(20),
+            borderRadius: BorderRadius.circular(20.r),
           ),
         ),
         child: Stack(
@@ -64,15 +65,15 @@ class AppButton extends StatelessWidget {
               Align(
                 alignment: Alignment.centerLeft,
                 child: Padding(
-                  padding: const EdgeInsets.only(left: 16.0),
-                  child: Icon(icon, color: Colors.white,size: 25,),
+                  padding:  EdgeInsets.only(left: 16.r),
+                  child: Icon(icon, color: Colors.white,size: 25.w,),
                 ),
               ),
             Center(
               child: Text(
                 text,
                 style: TextStyle(
-                  fontSize: size ?? 20,
+                  fontSize: size?.sp ?? 20.sp,
                   fontWeight: FontWeight.w500,
                   color: Colors.white,
                 ),

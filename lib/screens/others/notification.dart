@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:fudiko/components/appbutton.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fudiko/components/appswitch.dart';
 import 'package:fudiko/components/apptext.dart';
-import 'package:fudiko/components/apptextfeild.dart';
 import 'package:fudiko/utils/constants.dart';
 
 class NotificationPage extends StatelessWidget {
@@ -18,23 +17,23 @@ class NotificationPage extends StatelessWidget {
               Navigator.pop(context);
             },
             child: Padding(
-              padding: const EdgeInsets.only(top: 40,left: 30),
+              padding:  EdgeInsets.only(top: 40.h,left: 30.w),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Icon(
                     Icons.arrow_back_ios_outlined,
-                    size: 30,
+                    size: 30.w,
                     color: appTextColor3,
                   ),
                 ],
               ),
             ),
           ),
-          SizedBox(height: 60),
+          SizedBox(height: 60.h),
           Divider(color: appTextColor, thickness: 1, height: 20),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+            padding:  EdgeInsets.symmetric(horizontal: 20.w, vertical: 10.h),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -61,7 +60,7 @@ class NotificationPage extends StatelessWidget {
           ),
           Divider(color: appTextColor, thickness: 1, height: 20),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+            padding:  EdgeInsets.symmetric(horizontal: 20.w, vertical: 10.h),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -77,7 +76,7 @@ class NotificationPage extends StatelessWidget {
           ),
           Divider(color: appTextColor, thickness: 1, height: 20),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+            padding:  EdgeInsets.symmetric(horizontal: 20.w, vertical: 10.h),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
