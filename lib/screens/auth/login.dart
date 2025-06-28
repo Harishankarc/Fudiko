@@ -84,7 +84,7 @@ class _LoginState extends State<Login> {
     if (response.status) {
       await saveToken(response.token!);
       if (!mounted) return;
-      Navigator.push(
+      Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => MainNavPage()),
       );

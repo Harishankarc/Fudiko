@@ -19,6 +19,7 @@ import 'package:fudiko/screens/others/scanner.dart';
 import 'package:fudiko/screens/others/services.dart';
 import 'package:fudiko/screens/others/totalOrders.dart';
 import 'package:fudiko/utils/constants.dart';
+import 'package:fudiko/utils/tokens.dart';
 
 class MainNavPage extends StatefulWidget {
   const MainNavPage({super.key});
@@ -360,15 +361,17 @@ class _MainNavPageState extends State<MainNavPage> {
           isDrawerOpen = false;
         });
 
-        Future.delayed(Duration(milliseconds: 100), () {
+        Future.delayed(Duration(milliseconds: 100), () async {
           if (routeWidget != null) {
             if (routeWidget is Login) {
-              Navigator.pushAndRemoveUntil(
+              if(!mounted) return;
+              Navigator.pushReplacement(
                 context,
                 MaterialPageRoute(builder: (context) => routeWidget),
-                (route) => false,
               );
+              await removeToken();
             } else {
+              if(!mounted) return;
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => routeWidget),

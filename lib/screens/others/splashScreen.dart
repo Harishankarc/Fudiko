@@ -1,7 +1,10 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:fudiko/screens/auth/login.dart';
 import 'package:fudiko/screens/auth/registration.dart';
+import 'package:fudiko/screens/others/nav/mainnav.dart';
+import 'package:fudiko/utils/tokens.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -15,12 +18,27 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    Timer(const Duration(seconds: 2), () {
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(builder: (context) => const Register()),
-      );
-    });
+    initial();
+
+  }
+
+  Future<void> initial() async{
+    final token = await getToken();
+    if(token != null){
+      Timer(const Duration(seconds: 2), () {
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (context) => const MainNavPage()),
+        );
+      });
+    }else{
+      Timer(const Duration(seconds: 2), () {
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (context) => const Login()),
+        );
+      });
+    }
   }
 
   @override

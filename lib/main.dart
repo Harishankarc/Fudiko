@@ -31,7 +31,7 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: Colors.white,
         fontFamily: 'Inter',
       ),
-      home: const MainNavPage(),
+      home: const SplashScreen(),
     );
   }
 }
